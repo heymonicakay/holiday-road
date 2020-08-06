@@ -2,7 +2,7 @@
 import { getBiz, useBiz } from "./BizProvider.js";
 import { BizHTML } from "./BizHTMLGenerator.js";
 
-const contentTarget = document.querySelector(".bizarries")
+const contentTarget = document.querySelector(".container--biz")
 const eventHub = document.querySelector(".main")
 
 eventHub.addEventListener("bizSelected", event => {
