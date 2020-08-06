@@ -2,7 +2,7 @@
 
 // exports EatHTML() 
 
-export const EatHTML = (eatObj) => {
+export const EateryHTML = (eatObj) => {
       return `
             <section>
                   <div>${eatObj.businessName}</div>
