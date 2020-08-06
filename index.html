@@ -8,41 +8,67 @@
 </head>
 
 <body>
-    <main>
+    <main class="main container__main">
 
-        <header>
-            <logo></logo>
-            <banner></banner>
+        <header class="header header__main">
+            <span class="logo logo--header">
+                <img class="image image--logo" src="" />
+            </span>
+            <div class="banner container__banner">
+            </div>
         </header>
 
-        <h2>Pick 3</h2>
+        
+        <section class="selector-section container__select-list">
 
-        <article class=selectors>
-            <select class="nationalParksSelect"></select>
-            <select class="bizzarriesSelect"></select>
-            <select class="eateriesSelect"></select>
-        </article>
-
-        <article class=forecastCard>
-            <div class="weather"></div>
-        </article>
-
-        <h2>Your Itenerary</h2>
-        <aside class="iteneraryInProgress">
-            <article class="nationalParks">
-                <button id="parkButton"></button>
+            <article class="container--all-selectors">
+                <h2 class="h2 heading heading--select-section">
+                    Pick 3
+                </h2>
+                <div class="container--nat-park-select">
+                    <select class="dropdown dropdown--nat-park">
+                    </select>
+                </div>
+                <div class="container--biz-select">
+                    <select class="dropdown dropdown--eat">
+                    </select>
+                </div>
+                <div class="container--eat-select">
+                    <select class="dropdown dropdown--eat">
+                    </select>
+                </div>
             </article>
-            <bizzarries class="bizzarries">
-                <article class="bizzarries">
-                    <button id="bizzarriesButton"></button>
-                </article>
-                <eateries class="eateriesSelect">
-                    <article class="eateries">
-                        <button id="eateriesButton"></button>
-                    </article>
+
+        </section>
+
+        <article class="container--forecast">
+            <div class="forecast">  
+            </div>
+        </article>
+
+        
+        <section class="container--iten-prev">
+            <h2 class="h2 heading heading--iten-prev">
+                Your Itenerary Preview
+            </h2>
+            <article class="container--nat-park">
+                <span id="btn btn--deets btn--nat-park-deets">
+                    More Info
+                </span>
+            </article>
+            <article class="container--nat-park">
+                <span id="btn btn--deets btn--nat-park-deets">
+                    More Info
+                </span>
+            </article>
+            <article class="container--">
+                <span id="btn btn--deets btn--nat-park-deets">
+                    More Info
+                </span>
+            </article>
         </aside>
 
-        <article class="iteneraryPreviewContainer">
+        <article class="">
             <article class="nationalParks">
             </article>
             <bizzarries class="bizzarries">
