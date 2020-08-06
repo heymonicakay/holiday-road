@@ -1,6 +1,6 @@
 import { useBiz, getBiz } from "./BizProvider.js";
 
-const contentTarget = document.querySelector(".container__select-list")
+const contentTarget = document.querySelector(".container--biz-select")
 const eventHub = document.querySelector(".main")
 
 contentTarget.addEventListener("change", changeEvent => {
