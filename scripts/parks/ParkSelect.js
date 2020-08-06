@@ -30,8 +30,6 @@ const render = parkCollection => {
     
 }
 
-
-
 export const ParkSelect = () => {
     getPark()
     .then(() => {

@@ -1,7 +1,7 @@
 import { getPark, usePark } from "./ParkProvider.js";
 import { ParkHTML } from "./ParkHTMLGenerator.js";
 
-const contentTarget = document.querySelector(".nationalParks")
+const contentTarget = document.querySelector(".container--nat-park")
 const eventHub = document.querySelector(".main")
 
 eventHub.addEventListener("parkSelected", event => {
