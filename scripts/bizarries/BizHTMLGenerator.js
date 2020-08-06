@@ -2,12 +2,22 @@
 
 // exports BizHTML()
 
+export const BizHTML = (bizObj) => {
+      return `
+            <section>
+                  <div>${bizObj.name}</div>
+            </section>
+      `
+}
+
 // listens for 'browser generated' event - 'click'
 
 /* Example of 'button' element to include in the HTML
 
 <span class="button button--deets button--${bizObject.id}">
-      Show More Info
+Show More Info
 </span>
 
 **/
+     
+
