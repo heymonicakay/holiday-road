@@ -1,9 +1,14 @@
-// let allEateries = [] 
-      // contains empty array 
+let eatery = [] 
       
-// exports  getAllEats() 
-      // fetches data from external eateries api and .pushes data response into the array
 
-// exports useAllEats() 
-      // creates a .slice of the eateries array
+export const useEatery = () => eatery.slice()
+      
 
+export const getEatery = () => {
+      return fetch("http://holidayroad.nss.team/eateries")
+            .then(response => response.json())
+            .then(parsedData => {
+                  eatery = parsedData
+            })
+}
+   

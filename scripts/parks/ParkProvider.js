@@ -1,8 +1,14 @@
-// let nationalParks = [] 
-      // contains empty array 
+let park = [] 
       
-// exports getParks() 
-      // fetches data from our sortedParks.json api
 
-// exports useParks() 
-      // creates a .slice of the nationalParks array
+export const usePark = () => park.slice()
+      
+
+export const getPark = () => {
+      return fetch("https://developer.nps.gov/api/v1/activities/parks?&api_key=hqFcQBZOdKmyA7kliNAo2cikzMcEnuweR1JRxqnq")
+            .then(response => response.json())
+            .then(parsedData => {
+                  park = parsedData
+            })
+}
+   
