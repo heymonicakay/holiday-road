@@ -10,7 +10,6 @@ contentTarget.addEventListener("change", changeEvent => {
             bizId: changeEvent.target.value
         }
     })
-
     eventHub.dispatchEvent(customEvent)
 })
 
