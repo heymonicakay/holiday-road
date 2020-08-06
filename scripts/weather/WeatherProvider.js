@@ -1,7 +1,6 @@
-// imports keys
+import { keys } from "../Settings.js"
 
-// create empty object to store the local weather data
-
+const eventHub = document.querySelector(".container")
 let weather = [] 
       
 
