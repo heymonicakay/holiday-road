@@ -10,26 +10,13 @@ import { getPark, usePark } from "./ParkProvider.js";
 
 
 
-eventHub.addEventListener("click", (buttonClickedEvent) => {
+eventHub.addEventListener("click", (btnClickedEvent) => {
 
-      if(buttonClickedEvent.target.classList.contains("button")) {
-            let theLastClass = "";
+      if(btnClickedEvent.target.classList.contains("btn--nat-park")) {
 
-            const buttonClassList = buttonClickedEvent.target.classList
-
-            for (let i = 0; i < buttonClassList.length; i += 2) {
-                  theLastClass += buttonClassList[i]
-            }
-            const [_, criminalId] = theLastClass.split("--");
-
-            const criminalIdInt = parseInt(criminalId);
-
-            const associateButtonEvent = new CustomEvent("theButtonWasClicked", {
-                  detail: {
-                        thisCriminalId: criminalIdInt
-                  }
+            const parkDeetsClickEvent = new CustomEvent("parkDeetsBtnClicked", {
             })
-            eventHub.dispatchEvent(associateButtonEvent)
+            eventHub.dispatchEvent(parkDeetsClickEvent)
       }
       else {
             return false

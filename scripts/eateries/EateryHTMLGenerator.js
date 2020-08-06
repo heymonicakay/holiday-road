@@ -12,7 +12,7 @@ export const EatHTML = (eatObj) => {
 
 
 /*
-<span class="button button--deets button--${eatObject.SOME KIND OF IDENTIFYER TO INDICATE SPECIFIC PARK SELCTED}">
+<span class="btn btn--deets">
       Show More Info
 </span>
 
