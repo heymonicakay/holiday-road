@@ -1,0 +1,15 @@
+.container--all-selectors {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a4766;
+    color: white;
+    border: 1px solid dimgrey;
+    width: 25rem;
+    padding: 1.5rem;
+    margin: 1rem;
+}
+
+h2 {
+    font-size: large;
+}
+

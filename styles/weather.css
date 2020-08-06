@@ -1,0 +1,9 @@
+.container--forecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px dotted dimgrey;
+    font-size: small;
+    padding: 1.5rem;
+    margin: 1rem;
+}
