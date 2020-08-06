@@ -1,37 +1,33 @@
-// imports useParks() and getParks() and ParkHTML()
 import { getPark, usePark } from "./ParkProvider.js";
-// generates HTML list of all individual ParkHTML() components
+import { ParkHTML } from "./ParkHTMLGenerator.js";
 
-// exports ParksList() which renders the park list to the DOM
+const contentTarget = document.querySelector(".container--nat-park")
+const eventHub = document.querySelector(".main")
 
-// listens for browser generated "click" event at target with class name "button"
-
-//
-
-
-
-eventHub.addEventListener("click", (buttonClickedEvent) => {
-
-      if(buttonClickedEvent.target.classList.contains("button")) {
-            let theLastClass = "";
-
-            const buttonClassList = buttonClickedEvent.target.classList
-
-            for (let i = 0; i < buttonClassList.length; i += 2) {
-                  theLastClass += buttonClassList[i]
-            }
-            const [_, criminalId] = theLastClass.split("--");
-
-            const criminalIdInt = parseInt(criminalId);
-
-            const associateButtonEvent = new CustomEvent("theButtonWasClicked", {
-                  detail: {
-                        thisCriminalId: criminalIdInt
-                  }
-            })
-            eventHub.dispatchEvent(associateButtonEvent)
-      }
-      else {
-            return false
-      };
+eventHub.addEventListener("parkSelected", event => {
+    const parkThatWasSelected = event.detail.fullName
+    const allPark = usePark()
+    const foundPark = allPark.find(parkObj => {
+        return parkObj.id === (parkThatWasSelected)
+    })
+    render(foundPark)
 })
+
+
+const render = foundPark => {
+
+    contentTarget.innerHTML = `
+        <article>
+           ${ParkHTML(foundPark)}
+        </article>
+    `
+}
+
+
+export const ParkList = () => {
+    getPark()
+    .then(() => {
+        const park = usePark()
+        render(park)
+    })
+}
