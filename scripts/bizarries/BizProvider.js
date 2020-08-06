@@ -1,8 +1,17 @@
-// let bizarries = [] 
-      // contains empty array 
+let bizarries = [] 
       
-// exports the getBiz() 
-      // fetches data from external bizarrie api and .pushes data response into the array
 
-// exports useBiz() 
-      // creates a .slice of the bizarries array
+export const useBiz = () => bizarries.slice(0, 51)
+
+      
+
+export const getBiz = () => {
+      return fetch("http://holidayroad.nss.team/bizarreries")
+            .then(response => response.json())
+            .then(parsedData => {
+                  bizarries = parsedData
+            })
+}
+   
+
+      

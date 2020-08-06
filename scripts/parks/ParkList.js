@@ -1,5 +1,5 @@
 // imports useParks() and getParks() and ParkHTML()
-
+import { getPark, usePark } from "./ParkProvider.js";
 // generates HTML list of all individual ParkHTML() components
 
 // exports ParksList() which renders the park list to the DOM
