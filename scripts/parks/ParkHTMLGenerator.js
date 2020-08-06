@@ -10,12 +10,10 @@ export const ParkHTML = (parkObj) => {
       `
 }
 
-
 /* Example of 'button' element to include in the HTML
 
-<span class="button button--deets button--${parkObject.SOME KIND OF IDENTIFYER TO INDICATE SPECIFIC PARK SELCTED}">
+<span class="btn btn--deets">
       Show More Info
 </span>
 
 **/
-
