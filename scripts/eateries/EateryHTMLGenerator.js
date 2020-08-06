@@ -2,7 +2,7 @@
 
 // exports EatHTML() 
 
-export const EatHTML = (eatObj) => {
+export const EateryHTML = (eatObj) => {
       return `
             <section>
                   <div>${eatObj.businessName}</div>
@@ -12,7 +12,7 @@ export const EatHTML = (eatObj) => {
 
 
 /*
-<span class="button button--deets button--${eatObject.SOME KIND OF IDENTIFYER TO INDICATE SPECIFIC PARK SELCTED}">
+<span class="btn btn--deets">
       Show More Info
 </span>
 
