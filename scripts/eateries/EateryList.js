@@ -2,7 +2,7 @@
 import { EateryHTML } from "./EateryHTMLGenerator.js";
 import { useEatery, getEatery } from "./EateryProvider.js";
 
-const contentTarget = document.querySelector(".eateriesSelect")
+const contentTarget = document.querySelector(".container--eatery")
 const eventHub = document.querySelector(".main")
 
 eventHub.addEventListener("eaterySelected", event => {
