@@ -59,7 +59,6 @@ const bizRender = foundBiz => {
 }
 
 const eatRender = foundEatery => {
-
     eatTarget.innerHTML = `
         <article>
            ${EateryHTML(foundEatery)}
