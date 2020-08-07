@@ -4,8 +4,9 @@ const contentTarget = document.querySelector(".container--eat-select")
 const eventHub = document.querySelector(".main")
 
 contentTarget.addEventListener("change", changeEvent => {
-
+    console.log(changeEvent.target.value)
     const customEvent = new CustomEvent("eaterySelected", {
+        
         detail: {
             eateryId: changeEvent.target.value
         }
