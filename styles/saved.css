@@ -1,8 +1,9 @@
-.itenerary-preview {
-    background-color: dimgrey;
+.sidebar--right {
+    background-color: #5b7c8e;
     color: white;
-    border: 1px dotted dimgrey;
     font-size: small;
     padding: 1.5rem;
     margin: 1rem;
+    width: 25rem;
+    /* float: right; */
 }

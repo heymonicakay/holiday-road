@@ -1,8 +1,31 @@
-.container--iten-prev {
-    background-color: #5b7c8e;
-    color: white;
+
+.container--preview-forecast {
+    display: flex;
+    flex-direction: row;
     border: 1px dotted dimgrey;
+    float: left;
+}
+
+.container--iten-prev {
+    display: flex;
+    flex-direction: column;    
+    background-color: dimgrey;
+    color: white;
     font-size: small;
     padding: 1.5rem;
     margin: 1rem;
+    float: left;
+    min-width: 25rem;
+}
+
+.container--forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    background-color: dimgrey;
+    color: white;
+    font-size: small;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 10rem;
 }
