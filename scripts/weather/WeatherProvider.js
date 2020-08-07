@@ -1,22 +1,39 @@
-// imports keys
+import { keys } from "../Settings.js"
+import { usePark } from "../parks/ParkProvider.js"
 
-// create empty object to store the local weather data
+const eventHub = document.querySelector(".main")
 
-let weather = [] 
-      
+eventHub.addEventListener("parkSelected", event => {
+      const parkThatWasSelected = event.detail.fullName
+      const allPark = usePark()
+      const foundPark = allPark.find(parkObj => {
+          return parkObj.id === (parkThatWasSelected)
+      })
+      const [ postalCode, _] = foundPark.addresses[0].postalCode.split("-")
+  
+      getWeatherData(postalCode)
+      console.log(getWeatherData(postalCode))
+})
 
-export const useWeather = () => weather.slice()
-      
-
-export const getWeather = () => {
-      return fetch("http://api.openweathermap.org/data/2.5/forecast?q=${nashville}&cnt=48&units=imperial&appid=20a56fc71e8cb7dbfebfd4cd961766af")
-            .then(response => response.json())
-            .then(parsedData => {
-                  weather = parsedData
-            })
+let forecast = []
+export const getWeatherData = ( postalCode ) => {
+    return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=${postalCode}&units=imperial&cnt=48&appid=${keys.weatherKey}`)
+        .then(response => response.json())
+        .then(parsedWeather => {
+            forecast = parsedWeather.list
+            console.log(forecast, "TEST FORECAST in getWeatherData")
+        })
+        .then(useWeatherData)
+        .then(dispatchForecastCaptured)
+        .then(console.log("forecast captured event dispatched"))
 }
-   
+export const useWeatherData = () => {
+      return forecast.slice()
+}
 
-// listens for 
-
+export const dispatchForecastCaptured = () => {
+      const forecastCaptured = new CustomEvent("forecastHasBeenCaptured")
+      eventHub.dispatchEvent(forecastCaptured)
+      console.log("Forecast has been captured.")
+}
       
