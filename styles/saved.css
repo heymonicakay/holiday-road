@@ -1,0 +1,9 @@
+.sidebar--right {
+    background-color: #5b7c8e;
+    color: white;
+    font-size: small;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 25rem;
+    /* float: right; */
+}

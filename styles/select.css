@@ -1,0 +1,14 @@
+.container__select-list {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a4766;
+    color: white;
+    padding: 1.5rem;
+    margin: 1rem;
+}
+
+.container--all-selectors {
+    display: flex;
+    flex-direction: row;
+}
+
