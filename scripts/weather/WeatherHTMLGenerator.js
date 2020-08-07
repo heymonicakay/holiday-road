@@ -1,4 +1,5 @@
 export const ForecastHTML = (weather) => {
+    
     return `
           <section class="forecast-card">
                 Timestamp: ${weather[0].dt}
