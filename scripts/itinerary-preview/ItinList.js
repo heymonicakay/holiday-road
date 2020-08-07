@@ -17,6 +17,10 @@ eventHub.addEventListener("parkSelected", event => {
     const foundPark = allPark.find(parkObj => {
         return parkObj.id === (parkThatWasSelected)
     })
+    getPark()
+    .then(() => {
+        const park = usePark()
+    })
     parkRender(foundPark)
 })
 
@@ -27,6 +31,10 @@ eventHub.addEventListener("eaterySelected", event => {
     const foundEatery = allEateries.find(eateryObj => {
         return eateryObj.id === (parseInt(eateryThatWasSelected))
     })
+    getEatery()
+    .then(() => {
+        const eatery = useEatery()
+    })
     eatRender(foundEatery)
 })
 
@@ -36,6 +44,10 @@ eventHub.addEventListener("bizSelected", event => {
     const allBiz = useBiz()
     const foundBiz = allBiz.find(bizObj => {
         return bizObj.id === (parseInt(bizThatWasSelected))
+    })
+    getBiz()
+    .then(() => {
+        const biz = useBiz()
     })
     bizRender(foundBiz)
 })
@@ -64,28 +76,4 @@ const eatRender = foundEatery => {
            ${EateryHTML(foundEatery)}
         </article>
     `
-}
-
-export const BizList = () => {
-    getBiz()
-    .then(() => {
-        const biz = useBiz()
-        bizRender(biz)
-    })
-}
-
-export const EateryList = () => {
-    getEatery()
-    .then(() => {
-        const eatery = useEatery()
-        eatRender(eatery)
-    })
-}
-
-export const ParkList = () => {
-    getPark()
-    .then(() => {
-        const park = usePark()
-        parkRender(park)
-    })
 }

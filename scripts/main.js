@@ -4,10 +4,7 @@ import { ParkSelect } from "./parks/ParkSelect.js";
 import { renderSaveButton } from "./itinerary-preview/ItineraryPreview.js";
 import "./itinerary-preview/ItinList.js"
 
-BizList()
 BizSelect()
-EateryList()
 EaterySelect()
-ParkList()
 ParkSelect()
 renderSaveButton()
