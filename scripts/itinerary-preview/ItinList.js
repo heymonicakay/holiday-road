@@ -1,10 +1,10 @@
 
-import { getBiz, useBiz } from "./BizProvider.js";
-import { BizHTML } from "./BizHTMLGenerator.js";
-import { EateryHTML } from "./EateryHTMLGenerator.js";
-import { useEatery, getEatery } from "./EateryProvider.js";
-import { getPark, usePark } from "./ParkProvider.js";
-import { ParkHTML } from "./ParkHTMLGenerator.js";
+import { getBiz, useBiz } from "../bizarries/BizProvider.js";
+import { BizHTML } from "../bizarries/BizHTMLGenerator.js";
+import { EateryHTML } from "../eateries/EateryHTMLGenerator.js";
+import { useEatery, getEatery } from "../eateries/EateryProvider.js";
+import { getPark, usePark } from "../parks/ParkProvider.js";
+import { ParkHTML } from "../parks/ParkHTMLGenerator.js";
 
 const eventHub = document.querySelector(".main")
 const bizTarget = document.querySelector(".container--biz")
@@ -27,19 +27,17 @@ eventHub.addEventListener("eaterySelected", event => {
     const foundEatery = allEateries.find(eateryObj => {
         return eateryObj.id === (parseInt(eateryThatWasSelected))
     })
-    console.log(foundEatery)
-    render(foundEatery)
+    eatRender(foundEatery)
 })
 
 eventHub.addEventListener("bizSelected", event => {
 
-    bizThatWasSelected = event.detail.bizId
+    const bizThatWasSelected = event.detail.bizId
     const allBiz = useBiz()
     const foundBiz = allBiz.find(bizObj => {
         return bizObj.id === (parseInt(bizThatWasSelected))
     })
-    console.log(foundBiz)
-    render(bizRender)
+    bizRender(foundBiz)
 })
 
 const parkRender = foundPark => {
@@ -73,7 +71,7 @@ export const BizList = () => {
     getBiz()
     .then(() => {
         const biz = useBiz()
-        render(biz)
+        bizRender(biz)
     })
 }
 
@@ -81,7 +79,7 @@ export const EateryList = () => {
     getEatery()
     .then(() => {
         const eatery = useEatery()
-        render(eatery)
+        eatRender(eatery)
     })
 }
 
@@ -89,6 +87,6 @@ export const ParkList = () => {
     getPark()
     .then(() => {
         const park = usePark()
-        render(park)
+        parkRender(park)
     })
 }
