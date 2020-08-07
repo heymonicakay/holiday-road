@@ -14,5 +14,4 @@ export const showForecast = (weather) => {
       ${ForecastHTML(weather)}
       ` 
       console.log(weather[0], "TEST weather.weather")
-      
 }
