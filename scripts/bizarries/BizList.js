@@ -5,9 +5,11 @@ import { BizHTML } from "./BizHTMLGenerator.js";
 const contentTarget = document.querySelector(".container--biz")
 const eventHub = document.querySelector(".main")
 
+let bizThatWasSelected = []
+
 eventHub.addEventListener("bizSelected", event => {
 
-    const bizThatWasSelected = event.detail.bizId
+    bizThatWasSelected = event.detail.bizId
     const allBiz = useBiz()
     const foundBiz = allBiz.find(bizObj => {
         return bizObj.id === (parseInt(bizThatWasSelected))
@@ -15,6 +17,11 @@ eventHub.addEventListener("bizSelected", event => {
     console.log(foundBiz)
     render(foundBiz)
 })
+
+// eventHub.addEventListener("saveClicked", event => {
+//     console.log(bizThatWasSelected)
+
+// })
 
 
 const render = foundBiz => {
