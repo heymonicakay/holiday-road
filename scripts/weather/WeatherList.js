@@ -1,5 +1,17 @@
-// imports useForecast() and getForecast() and ForecastHTML()
+import { useWeatherData, getWeatherData } from "./WeatherProvider.js";
+import { ForecastHTML } from "./WeatherHTMLGenerator.js"
 
-// generates HTML list of all individual ForecastHTML() components
+const contentTarget = document.querySelector(".container--forecast")
+const eventHub = document.querySelector(".main")
 
-// exports ForecastList()
+eventHub.addEventListener("forecastHasBeenCaptured", customEvent => {
+      const weather = useWeatherData()
+      return showForecast(weather)
+})
+
+export const showForecast = (weather) => {
+      contentTarget.innerHTML = `
+      ${ForecastHTML(weather)}
+      ` 
+      console.log(weather[0], "TEST weather.weather")
+}

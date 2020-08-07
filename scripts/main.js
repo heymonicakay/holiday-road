@@ -4,6 +4,8 @@ import { EateryList } from "./eateries/EateryList.js";
 import { EaterySelect } from "./eateries/EaterySelect.js";
 import { ParkList } from "./parks/ParkList.js";
 import { ParkSelect } from "./parks/ParkSelect.js";
+import "./weather/WeatherProvider.js";
+import "./weather/WeatherList.js";
 
 BizList()
 BizSelect()
