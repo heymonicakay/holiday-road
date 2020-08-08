@@ -23,7 +23,7 @@ const render = eateryCollection => {
         <option value="0">Please select a Restaurant...</option>
         ${
             eateryCollection.map(eateryObject => {
-                    return `<option value="${eateryObject.id}">${eateryObject.businessName}</option>`
+                    return `<option value="${eateryObject.businessName}">${eateryObject.businessName}</option>`
                 }
             ).join("")
         }
