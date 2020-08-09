@@ -5,6 +5,7 @@ import { EateryHTML } from "../eateries/EateryHTMLGenerator.js";
 import { useEatery, getEatery } from "../eateries/EateryProvider.js";
 import { getPark, usePark } from "../parks/ParkProvider.js";
 import { ParkHTML } from "../parks/ParkHTMLGenerator.js";
+import { bizDialog } from "../details/DetailDialog.js";
 
 const eventHub = document.querySelector(".main")
 const bizTarget = document.querySelector(".container--biz")
@@ -67,6 +68,7 @@ const bizRender = foundBiz => {
         <article>
            ${BizHTML(foundBiz)}
         </article>
+            ${bizDialog()}
     `
 }
 

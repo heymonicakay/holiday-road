@@ -34,9 +34,12 @@
     flex-direction: row;
 }
 
-.preview--biz {
+.preview--park, 
+.preview--biz, 
+.preview--eat {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
  
 .button--details-park, 
@@ -50,4 +53,5 @@
 .dialog-box--eat {
     font-size: small;
     border: 1px solid dimgrey;
+    width: 50%;
 }

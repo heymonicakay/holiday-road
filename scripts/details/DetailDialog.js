@@ -2,26 +2,28 @@ import { useBiz } from "../bizarries/BizProvider.js";
 // import usePark here
 // import useBiz here
 
-const eventhHub = document.querySelector(".main")
+const eventHub = document.querySelector(".main")
 
 // event listener to hear "bizDetailsClicked"
-eventHub.addEventListener("bizDetailsClicked", (clickEvent) => {
+eventHub.addEventListener("bizDetailsClicked", clickEvent => {
 
       const contentTarget = document.querySelector (".dialog-box--biz")   
-      const bizId = clickEvent.detail.criminalChosen
+      const bizId = clickEvent.detail.bizChosen
       const allBiz = useBiz()
   
       const targetBiz = allBiz.find(
           (biz) => biz.id === parseInt(bizId))
-      
-      const htmlRepresentation = targetBiz.map(associate => {
-          return `
+               
+      const htmlRepresentation = 
+            `
               <section class="biz--details">
-              <div><b>Associate:</b> ${associate.name}</div>
-              <div><b>Alibi:</b> ${associate.alibi}</div>
+              <h3>${targetBiz.name}</h3>
+              <div><b>Location:</b> ${targetBiz.city}, ${targetBiz.state}</div>
+              <div><b>Description:</b> ${targetBiz.description}</div>
+              <div><b>Souvenirs:</b> ${targetBiz.ameneties.souvenirs}</div>
+              <div><b>Restrooms:</b> ${targetBiz.ameneties.restrooms}</div>
               </section>
           `
-          }).join("")
           
   
       contentTarget.innerHTML = htmlRepresentation
@@ -31,7 +33,7 @@ eventHub.addEventListener("bizDetailsClicked", (clickEvent) => {
   })
   
    
-  //export alibiDialog() to add to CriminalList.js innerHTML
+  //export bizDialog() to add to ItinList.js innerHTML
   export const bizDialog = () => {
       return `
       <dialog class="dialog-box--biz"></dialog>
