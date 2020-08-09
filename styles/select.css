@@ -3,7 +3,7 @@
     flex-direction: column;
     background-color: #1a4766;
     color: white;
-    padding: 1.5rem;
+    padding: 2rem;
     margin: 1rem;
 }
 
@@ -12,3 +12,15 @@
     flex-direction: row;
 }
 
+#parkSelect, 
+#eaterySelect, 
+#bizSelect {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1a4766;
+    color: white;
+    border-top: none;
+    border-bottom: .5px solid;
+    border-left: none;
+    border-right: none;
+}
