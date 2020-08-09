@@ -12,7 +12,7 @@
     font-size: small;
     padding: 1.5rem;
     margin: 1rem;
-    min-width: 25rem;
+    min-width: 35rem;
 }
 
 .container--forecast {
@@ -45,7 +45,11 @@
 .button--details-park, 
 .button--details-eat, 
 .button--details-biz {
-    margin: .5rem;
+    background-color: dimgrey;
+    color: #1a4766;
+    font-weight: bold;
+    border: .5px dotted #1a4766;
+    margin: 1rem;
 }
 
 .dialog-box--park, 
