@@ -1,22 +1,10 @@
 {
   "itineraries": [
     {
-      "eatery": "The Lobster Shack Restaurant at Two Lights",
-      "park": "Belmont-Paul Women's Equality National Monument",
-      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
+      "eatery": "Deer Park Tavern",
+      "park": "Cuyahoga Valley National Park",
+      "bizarrie": "Owney the Stuffed Dog Postal Mascot",
       "id": 1
-    },
-    {
-      "eatery": "The Lobster Shack Restaurant at Two Lights",
-      "park": "Belmont-Paul Women's Equality National Monument",
-      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
-      "id": 2
-    },
-    {
-      "eatery": "The Lobster Shack Restaurant at Two Lights",
-      "park": "Belmont-Paul Women's Equality National Monument",
-      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
-      "id": 3
     }
   ]
 }

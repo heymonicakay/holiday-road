@@ -31,6 +31,8 @@ eventHub.addEventListener("click", clickEvent => {
         const selectedBiz = document.querySelector("#bizSelect")
         const selectedPark = document.querySelector("#parkSelect") 
 
+        if (selectedEatery.value != "0" && selectedBiz.value != "0" && selectedPark.value != "0"){
+
         const newItinerary = {
             eatery: selectedEatery.value,
             park: selectedPark.value,
@@ -44,6 +46,8 @@ eventHub.addEventListener("click", clickEvent => {
         })
     })
     }
+    else{ window.alert("Please select all options.")}
+}
 })
 
 const parkRender = foundPark => {
