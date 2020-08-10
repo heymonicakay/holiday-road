@@ -4,13 +4,14 @@ const contentTarget = document.querySelector(".container--nat-park-select")
 const eventHub = document.querySelector(".main")
 
 contentTarget.addEventListener("change", changeEvent => {
-    
+    if (changeEvent.target.value != "0") {
     const customEvent = new CustomEvent("parkSelected", {
         detail: {
             fullName: changeEvent.target.value
         }
     })
     eventHub.dispatchEvent(customEvent)
+}
 })
 
 
