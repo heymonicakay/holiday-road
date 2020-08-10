@@ -1,15 +1,7 @@
-// this is invoking functions to display the selected options
-
-// import SaveButton()
 
 const eventHub = document.querySelector(".main")
 const contentTarget = document.querySelector(".btn--save")
 
-export const renderSaveButton = () => {
-    contentTarget.innerHTML =`
-    <button id="saveItinerary">Save Itinerary</button>
-    `
-}
 
 export const itineraryDispatch = (itinerary) => {
     const jsonItinerary = JSON.stringify(itinerary)

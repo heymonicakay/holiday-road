@@ -11,18 +11,36 @@ const bizTarget = document.querySelector(".container--biz")
 const eatTarget = document.querySelector(".container--eatery")
 const parkTarget = document.querySelector(".container--nat-park")
 const itineraryTarget = document.querySelector(".container--saved-itineraries")
+const saveButton = document.querySelector(".save-btn")
 
+const saveCheckList = {
+    userPickedPark: false,
+    userPickedEatery: false,
+    userPickedBizarrie: false
+}
+
+export const enableSaveButton = () => {
+    if (saveCheckList.userPickedPark && saveCheckList.userPickedEatery && saveCheckList.userPickedBizarrie) {
+        saveButton.disabled = false;
+    }
+}
 eventHub.addEventListener("parkSelected", event => {
     parkRender(event.detail.fullName)
+    saveCheckList.userPickedPark = true;
+    enableSaveButton()
 })
 
 eventHub.addEventListener("eaterySelected", event => {
     eatRender(event.detail.eateryId)
-
+    saveCheckList.userPickedEatery = true;
+    enableSaveButton()
 })
 
 eventHub.addEventListener("bizSelected", event => {
     bizRender(event.detail.bizId)
+    saveCheckList.userPickedBizarrie = true;
+        enableSaveButton()
+
 })
 eventHub.addEventListener("click", clickEvent => {
     console.log(clickEvent.target.id)
@@ -86,5 +104,12 @@ const eatRender = foundEatery => {
         <article>
            ${EateryHTML(foundEatery)}
         </article>
+    `
+}
+
+const renderSaveButton = () => {
+    
+    contentTarget.innerHTML =`
+    
     `
 }
