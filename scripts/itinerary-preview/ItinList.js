@@ -1,7 +1,7 @@
 import { BizHTML } from "../bizarries/BizHTMLGenerator.js";
 import { EateryHTML } from "../eateries/EateryHTMLGenerator.js";
 import { ParkHTML } from "../parks/ParkHTMLGenerator.js";
-import { bizDialog, eatDialog, parkDialog } from "../details/DetailDialog.js";
+import { bizDialog } from "../details/DetailDialog.js";
 import { itineraryDispatch } from "./ItineraryPreview.js";
 import { useItinerary, getItinerary } from "./SaveItineraryButton.js";
 import { itineraryHTML } from "./itineraryHTML.js";
@@ -74,7 +74,6 @@ const parkRender = foundPark => {
         <article>
            ${ParkHTML(foundPark)}
         </article>
-        ${parkDialog()}
     `
 }
 
@@ -105,7 +104,6 @@ const eatRender = foundEatery => {
         <article>
            ${EateryHTML(foundEatery)}
         </article>
-        ${eatDialog()}
     `
 }
 

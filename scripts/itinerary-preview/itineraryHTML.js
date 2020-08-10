@@ -4,9 +4,9 @@ export const itineraryHTML = (itenObj) => {
     <br>
     <fieldset>
           <section>
-                <div><b>Park: </b>${itenObj.park}</div>
-                <div><b>Attraction: </b>${itenObj.bizarrie}</div>
-                <div><b>Restaurant: </b>${itenObj.eatery}</div>
+                <div>${itenObj.eatery}</div>
+                <div>${itenObj.park}</div>
+                <div>${itenObj.bizarrie}</div>
           </section>
       </fieldset>
       <br>
