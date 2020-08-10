@@ -5,7 +5,7 @@
 export const BizHTML = (bizObj) => {
       return `
             <section>
-                  <div>${bizObj.name}</div>
+                  <div>${bizObj}</div>
             </section>
       `
 }

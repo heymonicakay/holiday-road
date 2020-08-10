@@ -1,15 +1,14 @@
-/* Responsiblity - 
+let itineraries = []
 
-listens for - 'browser generated' event 
-      type - 'click' 
-      target - classList.contains(".btn--save")
+export const useItinerary = () => {
+      return itineraries    
+  }
+  
+  export const getItinerary = () => {
 
-dispatches - 'custom event'
-      name - 'bizDetailsClicked'
-      payload - none
-
-exports - SaveButton()
-
-onclick run save button 
-.then reset the preview container
-
+  return fetch("http://localhost:8087/itineraries")
+        .then(response => response.json()) 
+        .then(retrievedIten => {
+           itineraries = retrievedIten
+        })
+    }
