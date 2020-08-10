@@ -18,7 +18,7 @@ const render = bizCollection => {
 
     contentTarget.innerHTML = `
     <select class="dropdown" id="bizSelect">
-        <option value="0">Please select a Bizarre Destination...</option>
+        <option value="0">Please select a bizarre destination...</option>
         ${
             bizCollection.map(bizObject => {
                     return `<option value="${bizObject.name}">${bizObject.name}</option>`

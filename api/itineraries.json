@@ -1,4 +1,22 @@
 {
   "itineraries": [
+    {
+      "eatery": "The Lobster Shack Restaurant at Two Lights",
+      "park": "Belmont-Paul Women's Equality National Monument",
+      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
+      "id": 1
+    },
+    {
+      "eatery": "The Lobster Shack Restaurant at Two Lights",
+      "park": "Belmont-Paul Women's Equality National Monument",
+      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
+      "id": 2
+    },
+    {
+      "eatery": "The Lobster Shack Restaurant at Two Lights",
+      "park": "Belmont-Paul Women's Equality National Monument",
+      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
+      "id": 3
+    }
   ]
 }
