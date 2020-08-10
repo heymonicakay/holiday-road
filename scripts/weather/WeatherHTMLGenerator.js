@@ -1,13 +1,34 @@
-export const ForecastHTML = (weather) => {
+export const DayOfTheWeek = (weather) => {
+      const daysOfTheWeek = [
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday'
+      ]
+      const date = new Date(weather.dt * 1000)
+
+      const day = date.getDay()
+
       return `
-            <section class="forecast-card">
-                  Timestamp: ${weather[0].dt}
-                  <div class="container--weather-image">
-                        <img class="image weather-image" src="http://openweathermap.org/img/wn/${weather[0].weather[0].icon}@2x.png">
-                  </div>
-                  <div class="forecast--temp">
-                        ${weather[0].main.temp}&deg; F
-                  </div>
-            </section>
-      `
+                  ${daysOfTheWeek[day]}
+            `
+}
+
+export const ForecastHTML = (weather) => {
+return `
+            <span class="container--weather-image">
+                  <img class="image weather-image" src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png">
+            </span>
+            <div class="forecast--temps">
+                  <span class="temp--high">
+                  High: ${Math.round(weather.main.temp_max)}&deg; F
+                  </span>
+                  <span class="temp--low">
+                  Low: ${Math.round(weather.main.temp_min)}&deg; F
+                  </span>
+            </div>
+`
 }
