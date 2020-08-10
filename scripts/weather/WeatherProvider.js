@@ -17,7 +17,7 @@ eventHub.addEventListener("parkSelected", event => {
 
 let forecast = []
 export const getWeatherData = ( postalCode ) => {
-    return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=${postalCode}&units=imperial&cnt=48&appid=${keys.weatherKey}`)
+    return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=${postalCode}&units=imperial&appid=${keys.weatherKey}`)
         .then(response => response.json())
         .then(parsedWeather => {
             forecast = parsedWeather.list

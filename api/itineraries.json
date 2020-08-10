@@ -1,22 +1,46 @@
 {
   "itineraries": [
     {
-      "eatery": "The Lobster Shack Restaurant at Two Lights",
-      "park": "Belmont-Paul Women's Equality National Monument",
-      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
+      "eatery": "Big Bob Gibson Bar-B-Que",
+      "park": "African American Civil War Memorial",
+      "bizarrie": "Big White Shirt",
       "id": 1
     },
     {
-      "eatery": "The Lobster Shack Restaurant at Two Lights",
-      "park": "Belmont-Paul Women's Equality National Monument",
-      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
+      "eatery": "Big Bob Gibson Bar-B-Que",
+      "park": "African American Civil War Memorial",
+      "bizarrie": "Big White Shirt",
       "id": 2
     },
     {
-      "eatery": "The Lobster Shack Restaurant at Two Lights",
-      "park": "Belmont-Paul Women's Equality National Monument",
-      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
+      "eatery": "Louis' Lunch",
+      "park": "Augusta Canal National Heritage Area",
+      "bizarrie": "Elvis Memorial Chapel",
       "id": 3
+    },
+    {
+      "eatery": "El Charro Cafe",
+      "park": "African American Civil War Memorial",
+      "bizarrie": "Giant Tattoo Needle",
+      "id": 4
+    },
+    {
+      "eatery": "Marge's Pancake House",
+      "park": "African American Civil War Memorial",
+      "bizarrie": "Big White Shirt",
+      "id": 5
+    },
+    {
+      "eatery": "El Charro Cafe",
+      "park": "African American Civil War Memorial",
+      "bizarrie": "Fountain of Youth",
+      "id": 6
+    },
+    {
+      "eatery": "Gene & Jude's",
+      "park": "Augusta Canal National Heritage Area",
+      "bizarrie": "Cabazon Dinosaurs",
+      "id": 7
     }
   ]
 }
