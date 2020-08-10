@@ -4,7 +4,7 @@ export const EateryHTML = (eatObj) => {
       return `
             <section class="preview--eat">
                   <div><b>Restaurant: </b>${eatObj}</div>
-                  <button class="button--details-eat" id="button__eat--${eatObj}">Food Details</button>
+                  <button class="button--details-eat" id="button__eat--${eatObj}">Details</button>
             </section>
       `
 }

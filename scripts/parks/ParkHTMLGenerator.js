@@ -2,7 +2,7 @@ export const ParkHTML = (parkObj) => {
       return `
       <section class="preview--park">
                   <div><b>Park: </b>${parkObj}</div>
-                  <button class="button--details-park" id="button__park--${parkObj}">Park Details</button>
+                  <button class="button--details-park" id="button__park--${parkObj}">Details</button>
             </section>
       `
 }

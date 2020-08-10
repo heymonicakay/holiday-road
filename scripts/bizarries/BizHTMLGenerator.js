@@ -3,7 +3,7 @@ export const BizHTML = (bizObj) => {
       return `
       <section class="preview--biz">
       <div><b>Attraction: </b>${bizObj}</div>
-      <button class="button--details-biz" id="button__biz--${bizObj}">Attraction Details</button>
+      <button class="button--details-biz" id="button__biz--${bizObj}">Details</button>
       </section>
       `
 }

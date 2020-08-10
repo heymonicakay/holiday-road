@@ -41,6 +41,24 @@
       "park": "Augusta Canal National Heritage Area",
       "bizarrie": "Cabazon Dinosaurs",
       "id": 7
+    },
+    {
+      "eatery": "H&H Soul Food",
+      "park": "Camp Nelson National Monument",
+      "bizarrie": "Fountain of Youth",
+      "id": 8
+    },
+    {
+      "eatery": "McClard's BBQ",
+      "park": "African American Civil War Memorial",
+      "bizarrie": "Big White Shirt",
+      "id": 9
+    },
+    {
+      "eatery": "0",
+      "park": "0",
+      "bizarrie": "0",
+      "id": 10
     }
   ]
 }

@@ -40,14 +40,17 @@ export const parkDialog = () => {
 // event listener to hear "bizDetailsClicked"
 eventHub.addEventListener("bizDetailsClicked", clickEvent => {
 
-      const contentTarget = document.querySelector (".dialog-box--biz")   
-      const bizName = clickEvent.detail.bizChosen
-      const allBiz = useBiz()
+    const contentTarget = document.querySelector (".dialog-box--biz")   
+    const bizName = clickEvent.detail.bizChosen
+    const allBiz = useBiz()
   
-      const targetBiz = allBiz.find(
-          (biz) => biz.name === bizName)
-               
-      const htmlRepresentation = 
+    const targetBiz = allBiz.find(
+      (biz) => biz.name === bizName)
+    
+
+    console.log(targetBiz.ameneties.restrooms)  
+    
+    const htmlRepresentation = 
             `
               <section class="biz--details">
               <h3>${targetBiz.name}</h3>
@@ -58,10 +61,10 @@ eventHub.addEventListener("bizDetailsClicked", clickEvent => {
               </section>
           `
           
-      contentTarget.innerHTML = htmlRepresentation
+    contentTarget.innerHTML = htmlRepresentation
       
-      // show dialog box
-      contentTarget.showModal()
+    // show dialog box
+    contentTarget.showModal()
   })
   
   //export bizDialog() to add to ItinList.js innerHTML
@@ -88,9 +91,9 @@ eventHub.addEventListener("eatDetailsClicked", clickEvent => {
             <h3>${targetEat.businessName}</h3>
             <div><b>Location:</b> ${targetEat.city}, ${targetEat.state}</div>
             <div><b>Description:</b> ${targetEat.description}</div>
-            <div><b>Souvenirs:</b> ${targetEat.ameneties.restrooms}</div>
-            <div><b>Restrooms:</b> ${targetEat.ameneties.petFriendly}</div>
-            <div><b>Restrooms:</b> ${targetEat.ameneties.wheelchairAccessible}</div>
+            <div><b>Restrooms:</b> ${targetEat.ameneties.restrooms}</div>
+            <div><b>Pet Friendly:</b> ${targetEat.ameneties.petFriendly}</div>
+            <div><b>Wheelchair Accessible:</b> ${targetEat.ameneties.wheelchairAccessible}</div>
             </section>
         `
         
