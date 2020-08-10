@@ -1,56 +1,49 @@
-
-import { getBiz, useBiz } from "../bizarries/BizProvider.js";
 import { BizHTML } from "../bizarries/BizHTMLGenerator.js";
 import { EateryHTML } from "../eateries/EateryHTMLGenerator.js";
-import { useEatery, getEatery } from "../eateries/EateryProvider.js";
-import { getPark, usePark } from "../parks/ParkProvider.js";
 import { ParkHTML } from "../parks/ParkHTMLGenerator.js";
 import { bizDialog } from "../details/DetailDialog.js";
+import { itineraryDispatch } from "./ItineraryPreview.js";
+import { useItinerary, getItinerary } from "./SaveItineraryButton.js";
+import { itineraryHTML } from "./itineraryHTML.js";
 
 const eventHub = document.querySelector(".main")
 const bizTarget = document.querySelector(".container--biz")
 const eatTarget = document.querySelector(".container--eatery")
 const parkTarget = document.querySelector(".container--nat-park")
+const itineraryTarget = document.querySelector(".container--saved-itineraries")
 
 eventHub.addEventListener("parkSelected", event => {
-    const parkThatWasSelected = event.detail.fullName
-    const allPark = usePark()
-    const foundPark = allPark.find(parkObj => {
-        return parkObj.id === (parkThatWasSelected)
-    })
-    getPark()
-    .then(() => {
-        const park = usePark()
-    })
-    parkRender(foundPark)
+    parkRender(event.detail.fullName)
 })
 
 eventHub.addEventListener("eaterySelected", event => {
+    eatRender(event.detail.eateryId)
 
-    const eateryThatWasSelected = event.detail.eateryId
-    const allEateries = useEatery()
-    const foundEatery = allEateries.find(eateryObj => {
-        return eateryObj.id === (parseInt(eateryThatWasSelected))
-    })
-    getEatery()
-    .then(() => {
-        const eatery = useEatery()
-    })
-    eatRender(foundEatery)
 })
 
 eventHub.addEventListener("bizSelected", event => {
+    bizRender(event.detail.bizId)
+})
+eventHub.addEventListener("click", clickEvent => {
+    console.log(clickEvent.target.id)
+    if (clickEvent.target.id === "saveItinerary"){
+        const selectedEatery = document.querySelector("#eaterySelect")
+        const selectedBiz = document.querySelector("#bizSelect")
+        const selectedPark = document.querySelector("#parkSelect") 
 
-    const bizThatWasSelected = event.detail.bizId
-    const allBiz = useBiz()
-    const foundBiz = allBiz.find(bizObj => {
-        return bizObj.id === (parseInt(bizThatWasSelected))
+        const newItinerary = {
+            eatery: selectedEatery.value,
+            park: selectedPark.value,
+            bizarrie: selectedBiz.value
+        }
+        
+        itineraryDispatch(newItinerary).then(() => {
+        getItinerary().then(() => {
+        const itin = useItinerary()
+        itinRender(itin)
+        })
     })
-    getBiz()
-    .then(() => {
-        const biz = useBiz()
-    })
-    bizRender(foundBiz)
+    }
 })
 
 const parkRender = foundPark => {
@@ -60,6 +53,18 @@ const parkRender = foundPark => {
            ${ParkHTML(foundPark)}
         </article>
     `
+}
+
+const itinRender = savedItin => {
+
+    const itinToString = savedItin.map(
+
+        (currentItin) => {
+            return itineraryHTML(currentItin)
+        }
+    ).join("")
+
+    itineraryTarget.innerHTML = itinToString
 }
 
 const bizRender = foundBiz => {

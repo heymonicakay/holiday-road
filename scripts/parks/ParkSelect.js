@@ -4,7 +4,7 @@ const contentTarget = document.querySelector(".container--nat-park-select")
 const eventHub = document.querySelector(".main")
 
 contentTarget.addEventListener("change", changeEvent => {
-
+    
     const customEvent = new CustomEvent("parkSelected", {
         detail: {
             fullName: changeEvent.target.value
@@ -21,7 +21,7 @@ const render = parkCollection => {
         <option value="0">Please select a national park...</option>
         ${
             parkCollection.map(parkObject => {
-                    return `<option value="${parkObject.id}">${parkObject.fullName}</option>`
+                    return `<option value="${parkObject.fullName}">${parkObject.fullName}</option>`
                 }
             ).join("")
         }

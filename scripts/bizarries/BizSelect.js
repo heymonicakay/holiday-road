@@ -21,7 +21,7 @@ const render = bizCollection => {
         <option value="0">Please select a bizarre destination...</option>
         ${
             bizCollection.map(bizObject => {
-                    return `<option value="${bizObject.id}">${bizObject.name}</option>`
+                    return `<option value="${bizObject.name}">${bizObject.name}</option>`
                 }
             ).join("")
         }

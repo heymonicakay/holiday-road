@@ -2,7 +2,7 @@
 export const BizHTML = (bizObj) => {
       return `
       <section class="preview--biz">
-      <div>${bizObj.name}</div>
+      <div>${bizObj}</div>
       <button class="button--details-biz" id="button__biz--${bizObj.id}">Attraction Details</button>
       </section>
       `
