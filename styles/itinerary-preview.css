@@ -1,0 +1,61 @@
+
+.container--preview-forecast {
+    display: flex;
+    flex-direction: row;
+}
+
+.container--iten-prev {
+    display: flex;
+    flex-direction: column;    
+    background-color: dimgrey;
+    color: white;
+    font-size: small;
+    padding: 1.5rem;
+    margin: 1rem;
+    min-width: 35rem;
+}
+
+.container--forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    background-color: dimgrey;
+    color: white;
+    font-size: small;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 10rem;
+}
+
+.container--nat-park, 
+.container--biz, 
+.container--eatery {
+    display: flex;
+    flex-direction: row;
+}
+
+.preview--park, 
+.preview--biz, 
+.preview--eat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+ 
+.button--details-park, 
+.button--details-eat, 
+.button--details-biz {
+    background-color: dimgrey;
+    color: #1a4766;
+    font-weight: bold;
+    border: .5px dotted #1a4766;
+    margin: 1rem;
+}
+
+.dialog-box--park, 
+.dialog-box--biz, 
+.dialog-box--eat {
+    font-size: small;
+    border: 1px solid dimgrey;
+    width: 50%;
+}

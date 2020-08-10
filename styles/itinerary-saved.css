@@ -1,0 +1,20 @@
+.container--right {
+    background-color: #5b7c8e;
+    color: white;
+    font-size: small;
+    padding: 1.5rem;
+    margin: 0;
+    min-width: 25rem;
+    /* float: right; */
+}
+
+/* .container--saved-itineraries {
+    display: flex;
+    flex-direction: column;
+} */
+
+.card {
+    border: 1px solid white;
+    padding: 1rem;
+    margin: 1rem;
+}
