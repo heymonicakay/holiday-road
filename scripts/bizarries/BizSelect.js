@@ -11,7 +11,15 @@ if (changeEvent.target.value != "0") {
         }
     })
     eventHub.dispatchEvent(customEvent)
+<<<<<<< HEAD
+    
+    // console.log checkpoint, start...
+    console.log("what is returned when user selects a bizarre destination--", changeEvent.target.value)
+    ///console.log checkpoint, end...
+
+=======
 }
+>>>>>>> master
 })
 
 

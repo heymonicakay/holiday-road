@@ -2,8 +2,8 @@
 export const BizHTML = (bizObj) => {
       return `
       <section class="preview--biz">
-      <div>${bizObj}</div>
-      <button class="button--details-biz" id="button__biz--${bizObj.id}">Attraction Details</button>
+      <div><b>Attraction: </b>${bizObj}</div>
+      <button class="button--details-biz" id="button__biz--${bizObj}">Details</button>
       </section>
       `
 }
@@ -12,20 +12,20 @@ export const BizHTML = (bizObj) => {
 const eventHub = document.querySelector(".main")
 const contentTarget = document.querySelector(".container--iten-prev")
 
-// event listener -- dispatch "bizDetailsClicked"; use .split() method to get bizId from button id
+// event listener -- dispatch "DetailsClicked"; use .split() method to get chosenName from button id
 contentTarget.addEventListener("click", clickEvent => {
       if (clickEvent.target.id.startsWith("button__biz--")) {
-          const [prompt, bizId] = clickEvent.target.id.split("--")
+          const [prompt, chosenName] = clickEvent.target.id.split("--")
           
-          const bizEvent = new CustomEvent ("bizDetailsClicked", {
+          const customEvent = new CustomEvent ("bizDetailsClicked", {
               detail: {
-                  bizChosen: bizId
+                  bizChosen: chosenName
               }
           })
-          eventHub.dispatchEvent(bizEvent)
+          eventHub.dispatchEvent(customEvent)
           
-          // console.log checkpoint -- select a Bizarre Destination, then click on "Attraction Details" button in Itinerary Preview to confirm in the console...
-          console.log(`"bizDetailsClicked" dispatched...`, bizEvent)
+          // console.log checkpoint -- select an option, then click on "Details" button in Itinerary Preview to confirm in the console...
+          console.log(`"bizDetailsClicked" dispatched...`, customEvent)
       }
   })
 
