@@ -5,7 +5,7 @@
 export const EateryHTML = (eatObj) => {
       return `
             <section>
-                  <div>${eatObj.businessName}</div>
+                  <div>${eatObj}</div>
             </section>
       `
 }
