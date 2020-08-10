@@ -3,7 +3,7 @@ export const BizHTML = (bizObj) => {
       return `
       <section class="preview--biz">
       <div>${bizObj}</div>
-      <button class="button--details-biz" id="button__biz--${bizObj.id}">Attraction Details</button>
+      <button class="button--details-biz" id="button__biz--${bizObj}">Attraction Details</button>
       </section>
       `
 }
@@ -15,11 +15,11 @@ const contentTarget = document.querySelector(".container--iten-prev")
 // event listener -- dispatch "bizDetailsClicked"; use .split() method to get bizId from button id
 contentTarget.addEventListener("click", clickEvent => {
       if (clickEvent.target.id.startsWith("button__biz--")) {
-          const [prompt, bizId] = clickEvent.target.id.split("--")
+          const [prompt, bizObjName] = clickEvent.target.id.split("--")
           
           const bizEvent = new CustomEvent ("bizDetailsClicked", {
               detail: {
-                  bizChosen: bizId
+                  bizChosen: bizObjName
               }
           })
           eventHub.dispatchEvent(bizEvent)

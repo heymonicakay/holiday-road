@@ -11,6 +11,11 @@ contentTarget.addEventListener("change", changeEvent => {
         }
     })
     eventHub.dispatchEvent(customEvent)
+    
+    // console.log checkpoint, start...
+    console.log("what is returned when user selects a bizarre destination--", changeEvent.target.value)
+    ///console.log checkpoint, end...
+
 })
 
 

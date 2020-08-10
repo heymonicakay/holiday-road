@@ -25,7 +25,6 @@ eventHub.addEventListener("bizDetailsClicked", clickEvent => {
               </section>
           `
           
-  
       contentTarget.innerHTML = htmlRepresentation
       
       // show dialog box
@@ -39,8 +38,6 @@ eventHub.addEventListener("bizDetailsClicked", clickEvent => {
       <dialog class="dialog-box--biz"></dialog>
       `
   }
-  
-
 
 
 
