@@ -4,13 +4,14 @@ const contentTarget = document.querySelector(".container--biz-select")
 const eventHub = document.querySelector(".main")
 
 contentTarget.addEventListener("change", changeEvent => {
-
+if (changeEvent.target.value != "0") {
     const customEvent = new CustomEvent("bizSelected", {
         detail: {
             bizId: changeEvent.target.value
         }
     })
     eventHub.dispatchEvent(customEvent)
+}
 })
 
 
