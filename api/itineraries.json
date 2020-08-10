@@ -1,64 +1,10 @@
 {
   "itineraries": [
     {
-      "eatery": "Big Bob Gibson Bar-B-Que",
-      "park": "African American Civil War Memorial",
-      "bizarrie": "Big White Shirt",
+      "eatery": "Deer Park Tavern",
+      "park": "Cuyahoga Valley National Park",
+      "bizarrie": "Owney the Stuffed Dog Postal Mascot",
       "id": 1
-    },
-    {
-      "eatery": "Big Bob Gibson Bar-B-Que",
-      "park": "African American Civil War Memorial",
-      "bizarrie": "Big White Shirt",
-      "id": 2
-    },
-    {
-      "eatery": "Louis' Lunch",
-      "park": "Augusta Canal National Heritage Area",
-      "bizarrie": "Elvis Memorial Chapel",
-      "id": 3
-    },
-    {
-      "eatery": "El Charro Cafe",
-      "park": "African American Civil War Memorial",
-      "bizarrie": "Giant Tattoo Needle",
-      "id": 4
-    },
-    {
-      "eatery": "Marge's Pancake House",
-      "park": "African American Civil War Memorial",
-      "bizarrie": "Big White Shirt",
-      "id": 5
-    },
-    {
-      "eatery": "El Charro Cafe",
-      "park": "African American Civil War Memorial",
-      "bizarrie": "Fountain of Youth",
-      "id": 6
-    },
-    {
-      "eatery": "Gene & Jude's",
-      "park": "Augusta Canal National Heritage Area",
-      "bizarrie": "Cabazon Dinosaurs",
-      "id": 7
-    },
-    {
-      "eatery": "H&H Soul Food",
-      "park": "Camp Nelson National Monument",
-      "bizarrie": "Fountain of Youth",
-      "id": 8
-    },
-    {
-      "eatery": "McClard's BBQ",
-      "park": "African American Civil War Memorial",
-      "bizarrie": "Big White Shirt",
-      "id": 9
-    },
-    {
-      "eatery": "0",
-      "park": "0",
-      "bizarrie": "0",
-      "id": 10
     }
   ]
 }

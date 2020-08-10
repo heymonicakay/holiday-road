@@ -4,18 +4,22 @@ const contentTarget = document.querySelector(".container--biz-select")
 const eventHub = document.querySelector(".main")
 
 contentTarget.addEventListener("change", changeEvent => {
-
+if (changeEvent.target.value != "0") {
     const customEvent = new CustomEvent("bizSelected", {
         detail: {
             bizId: changeEvent.target.value
         }
     })
     eventHub.dispatchEvent(customEvent)
+<<<<<<< HEAD
     
     // console.log checkpoint, start...
     console.log("what is returned when user selects a bizarre destination--", changeEvent.target.value)
     ///console.log checkpoint, end...
 
+=======
+}
+>>>>>>> master
 })
 
 

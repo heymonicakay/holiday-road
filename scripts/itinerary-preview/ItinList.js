@@ -11,18 +11,36 @@ const bizTarget = document.querySelector(".container--biz")
 const eatTarget = document.querySelector(".container--eatery")
 const parkTarget = document.querySelector(".container--nat-park")
 const itineraryTarget = document.querySelector(".container--saved-itineraries")
+const saveButton = document.querySelector(".save-btn")
 
+const saveCheckList = {
+    userPickedPark: false,
+    userPickedEatery: false,
+    userPickedBizarrie: false
+}
+
+export const enableSaveButton = () => {
+    if (saveCheckList.userPickedPark && saveCheckList.userPickedEatery && saveCheckList.userPickedBizarrie) {
+        saveButton.disabled = false;
+    }
+}
 eventHub.addEventListener("parkSelected", event => {
     parkRender(event.detail.fullName)
+    saveCheckList.userPickedPark = true;
+    enableSaveButton()
 })
 
 eventHub.addEventListener("eaterySelected", event => {
     eatRender(event.detail.eateryId)
-
+    saveCheckList.userPickedEatery = true;
+    enableSaveButton()
 })
 
 eventHub.addEventListener("bizSelected", event => {
     bizRender(event.detail.bizId)
+    saveCheckList.userPickedBizarrie = true;
+        enableSaveButton()
+
 })
 eventHub.addEventListener("click", clickEvent => {
     console.log(clickEvent.target.id)
@@ -30,6 +48,8 @@ eventHub.addEventListener("click", clickEvent => {
         const selectedEatery = document.querySelector("#eaterySelect")
         const selectedBiz = document.querySelector("#bizSelect")
         const selectedPark = document.querySelector("#parkSelect") 
+
+        if (selectedEatery.value != "0" && selectedBiz.value != "0" && selectedPark.value != "0"){
 
         const newItinerary = {
             eatery: selectedEatery.value,
@@ -44,6 +64,8 @@ eventHub.addEventListener("click", clickEvent => {
         })
     })
     }
+    else{ window.alert("Please select all options.")}
+}
 })
 
 const parkRender = foundPark => {
@@ -84,5 +106,12 @@ const eatRender = foundEatery => {
            ${EateryHTML(foundEatery)}
         </article>
         ${eatDialog()}
+    `
+}
+
+const renderSaveButton = () => {
+    
+    contentTarget.innerHTML =`
+    
     `
 }
