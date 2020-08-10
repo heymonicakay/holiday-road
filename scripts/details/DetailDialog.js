@@ -8,11 +8,11 @@ const eventHub = document.querySelector(".main")
 eventHub.addEventListener("bizDetailsClicked", clickEvent => {
 
       const contentTarget = document.querySelector (".dialog-box--biz")   
-      const bizId = clickEvent.detail.bizChosen
+      const bizName = clickEvent.detail.bizChosen
       const allBiz = useBiz()
   
       const targetBiz = allBiz.find(
-          (biz) => biz.id === parseInt(bizId))
+          (biz) => biz.name === bizName)
                
       const htmlRepresentation = 
             `

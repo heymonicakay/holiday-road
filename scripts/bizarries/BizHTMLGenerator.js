@@ -15,11 +15,11 @@ const contentTarget = document.querySelector(".container--iten-prev")
 // event listener -- dispatch "bizDetailsClicked"; use .split() method to get bizId from button id
 contentTarget.addEventListener("click", clickEvent => {
       if (clickEvent.target.id.startsWith("button__biz--")) {
-          const [prompt, bizObjName] = clickEvent.target.id.split("--")
+          const [prompt, bizName] = clickEvent.target.id.split("--")
           
           const bizEvent = new CustomEvent ("bizDetailsClicked", {
               detail: {
-                  bizChosen: bizObjName
+                  bizChosen: bizName
               }
           })
           eventHub.dispatchEvent(bizEvent)

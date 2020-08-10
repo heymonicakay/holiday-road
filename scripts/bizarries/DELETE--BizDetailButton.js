@@ -1,1 +1,0 @@
-// Note: responsibility of this module is to mange the bizarre destinations details button 
