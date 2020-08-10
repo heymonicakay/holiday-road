@@ -1,17 +1,34 @@
-import { useWeatherData, getWeatherData } from "./WeatherProvider.js";
-import { ForecastHTML } from "./WeatherHTMLGenerator.js"
+import { useWeatherData } from "./WeatherProvider.js";
+import { ForecastHTML, DayOfTheWeek } from "./WeatherHTMLGenerator.js"
 
 const contentTarget = document.querySelector(".container--forecast")
 const eventHub = document.querySelector(".main")
 
 eventHub.addEventListener("forecastHasBeenCaptured", customEvent => {
-      const weather = useWeatherData()
-      return showForecast(weather)
+      FilterWeather()
 })
 
-export const showForecast = (weather) => {
-      contentTarget.innerHTML = `
-      ${ForecastHTML(weather)}
-      ` 
-      console.log(weather[0], "TEST weather.weather")
+export const FilterWeather = () => {
+      let weatherData = useWeatherData()
+      const fiveDayForecast = weatherData.filter(weather => {
+            if (weather.dt_txt.split(" ")[1] === "12:00:00") {
+                  return true
+            }
+      })
+      showForecast(fiveDayForecast)
+}
+export const showForecast = (fiveDayForecast) => {
+
+      contentTarget.innerHTML = fiveDayForecast.map(
+           (thisDay) => {
+                  return `
+                        <section class="forecast">
+                              ${DayOfTheWeek(thisDay)}
+                              ${ForecastHTML(thisDay)}
+                        </section>
+                  `
+            }).join("")
+            eventHub.addEventListener("forecastHasBeenCaptured", customEvent => {
+            FilterWeather()
+            })
 }
