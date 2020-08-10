@@ -4,8 +4,9 @@ const contentTarget = document.querySelector(".container--eat-select")
 const eventHub = document.querySelector(".main")
 
 contentTarget.addEventListener("change", changeEvent => {
-
+    console.log(changeEvent.target.value)
     const customEvent = new CustomEvent("eaterySelected", {
+        
         detail: {
             eateryId: changeEvent.target.value
         }
@@ -22,7 +23,7 @@ const render = eateryCollection => {
         <option value="0">Please select a Restaurant...</option>
         ${
             eateryCollection.map(eateryObject => {
-                    return `<option value="${eateryObject.id}">${eateryObject.businessName}</option>`
+                    return `<option value="${eateryObject.businessName}">${eateryObject.businessName}</option>`
                 }
             ).join("")
         }

@@ -7,7 +7,7 @@ eventHub.addEventListener("parkSelected", event => {
       const parkThatWasSelected = event.detail.fullName
       const allPark = usePark()
       const foundPark = allPark.find(parkObj => {
-          return parkObj.id === (parkThatWasSelected)
+          return parkObj.fullName === (parkThatWasSelected)
       })
       const [ postalCode, _] = foundPark.addresses[0].postalCode.split("-")
   
