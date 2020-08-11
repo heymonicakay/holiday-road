@@ -1,7 +1,6 @@
 .container--right {
     display: flex;
     flex-direction: column;
-    flex: 3;
     background-color: #5b7c8e;
     color: white;
     font-size: small;

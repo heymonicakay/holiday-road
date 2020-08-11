@@ -1,6 +1,5 @@
 .container__select-list {
     display: flex;
-    flex: 3;
     flex-direction: column;
     background-color: #1a4766;
     color: white;
@@ -11,14 +10,12 @@
 .container--all-selectors {
     display: flex;
     flex-direction: row;
-    flex: 3;
 }
 
 #parkSelect, 
 #eaterySelect, 
 #bizSelect {
     display: flex;
-    flex: .5;
     justify-content: space-between;
     background-color: #1a4766;
     color: white;

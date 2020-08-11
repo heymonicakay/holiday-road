@@ -37,6 +37,9 @@
       margin-left: .25em;
       margin-right: .25em;
       padding: .25em;
+      border-top-right-radius: 1em;
+      overflow: hidden;
+
 }
 
 .forecast-card--details {
@@ -47,6 +50,8 @@
       margin-left: .25em;
       margin-right: .25em;
       background-color: #bad5e4;
+      border-bottom-left-radius: 1rem;
+      overflow: hidden;
 }
   
 .forecast-card--image {
