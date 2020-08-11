@@ -7,10 +7,16 @@
     padding: 1.5em;
     margin: 0;
     min-width: 1em;
+    height: 400px;
+    overflow-y: scroll;
 }
 
-.card {
+.itin-card {
     border: 1px solid white;
     padding: 1em;
     margin: 1em;
+}
+
+.itin-card--park {
+    font-weight: 400;
 }

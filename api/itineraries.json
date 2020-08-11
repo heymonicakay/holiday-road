@@ -1,16 +1,67 @@
 {
   "itineraries": [
     {
-      "eatery": "Deer Park Tavern",
-      "park": "Cuyahoga Valley National Park",
-      "bizarrie": "Owney the Stuffed Dog Postal Mascot",
-      "id": 1
+      "eatery": "Buckhorn Exchange",
+      "park": "Bryce Canyon National Park",
+      "bizarrie": "Cabazon Dinosaurs",
+      "timestamp": 1597131751055,
+      "id": 3
     },
     {
-      "eatery": "Occidental Grill & Seafood",
+      "eatery": "Buckhorn Exchange",
+      "park": "Bryce Canyon National Park",
+      "bizarrie": "Cabazon Dinosaurs",
+      "timestamp": 1597131754191,
+      "id": 4
+    },
+    {
+      "eatery": "El Charro Cafe",
+      "park": "Charles Pinckney National Historic Site",
+      "bizarrie": "Largest Fork in the US",
+      "timestamp": 1597131895743,
+      "id": 5
+    },
+    {
+      "eatery": "McClard's BBQ",
+      "park": "Belmont-Paul Women's Equality National Monument",
+      "bizarrie": "Snake World",
+      "timestamp": 1597132020732,
+      "id": 6
+    },
+    {
+      "eatery": "Louis' Lunch",
+      "park": "Camp Nelson National Monument",
+      "bizarrie": "Snake World",
+      "timestamp": 1597132078071,
+      "id": 7
+    },
+    {
+      "eatery": "El Charro Cafe",
+      "park": "Bryce Canyon National Park",
+      "bizarrie": "Snake World",
+      "timestamp": 1597132188579,
+      "id": 8
+    },
+    {
+      "eatery": "Louis' Lunch",
+      "park": "Cape Cod National Seashore",
+      "bizarrie": "Owney the Stuffed Dog Postal Mascot",
+      "timestamp": 1597133847221,
+      "id": 9
+    },
+    {
+      "eatery": "Louis' Lunch",
       "park": "Augusta Canal National Heritage Area",
-      "bizarrie": "Avery’s Beverages",
-      "id": 2
+      "bizarrie": "Owney the Stuffed Dog Postal Mascot",
+      "timestamp": 1597134149717,
+      "id": 10
+    },
+    {
+      "eatery": "Louis' Lunch",
+      "park": "Bryce Canyon National Park",
+      "bizarrie": "Owney the Stuffed Dog Postal Mascot",
+      "timestamp": 1597134387396,
+      "id": 11
     }
   ]
 }

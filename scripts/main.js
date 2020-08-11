@@ -4,7 +4,12 @@ import { ParkSelect } from "./parks/ParkSelect.js";
 import "./weather/WeatherProvider.js";
 import "./weather/WeatherList.js";
 import "./itinerary-preview/ItinList.js"
+import "./itinerary-preview/ItineraryPreview.js"
+import "./itinerary-preview/ItineraryProvider.js"
+import { ItinList } from "./itinerary-preview/ItinList.js"
 
 BizSelect()
 EaterySelect()
 ParkSelect()
+
+ItinList()

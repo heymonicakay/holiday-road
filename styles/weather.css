@@ -14,8 +14,11 @@
 
 .heading--forecast {
       display: flex;
+      justify-self: flex-start;
       font-weight: 250;
+      height: 20%;
 }
+
 .container--forecast {
       display: flex;
       flex-direction: row;
@@ -51,6 +54,7 @@
       margin-right: .25em;
       background-color: #bad5e4;
       border-bottom-left-radius: 1rem;
+      height: 80%;
       overflow: hidden;
 }
   
