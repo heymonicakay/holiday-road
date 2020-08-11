@@ -1,13 +1,16 @@
 // exports BizHTML()
 export const BizHTML = (bizObj) => {
-      return `
-      <section class="preview--biz">
-      <div><b>Attraction: </b>${bizObj}</div>
-      <button class="button--details-biz" id="button__biz--${bizObj}">Details</button>
-      </section>
+        return `
+        <section class="preview--biz">
+            <div><b>Attraction: </b>
+            ${bizObj}
+            </div>
+            <button class="button--details-biz" id="button__biz--${bizObj}">
+                Details
+            </button>
+        </section>
       `
 }
-
 
 const eventHub = document.querySelector(".main")
 const contentTarget = document.querySelector(".container--iten-prev")

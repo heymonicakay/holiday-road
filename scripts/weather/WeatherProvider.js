@@ -12,28 +12,24 @@ eventHub.addEventListener("parkSelected", event => {
       const [ postalCode, _] = foundPark.addresses[0].postalCode.split("-")
   
       getWeatherData(postalCode)
-      console.log(getWeatherData(postalCode))
 })
 
 let forecast = []
 export const getWeatherData = ( postalCode ) => {
     return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=${postalCode}&units=imperial&appid=${keys.weatherKey}`)
-        .then(response => response.json())
+         .then(response => response.json())
         .then(parsedWeather => {
             forecast = parsedWeather.list
-            console.log(forecast, "TEST FORECAST in getWeatherData")
         })
         .then(useWeatherData)
         .then(dispatchForecastCaptured)
-        .then(console.log("forecast captured event dispatched"))
 }
 export const useWeatherData = () => {
       return forecast.slice()
 }
 
 export const dispatchForecastCaptured = () => {
-      const forecastCaptured = new CustomEvent("forecastHasBeenCaptured")
-      eventHub.dispatchEvent(forecastCaptured)
-      console.log("Forecast has been captured.")
+    const forecastCaptured = new CustomEvent("forecastHasBeenCaptured")
+    eventHub.dispatchEvent(forecastCaptured)
 }
       

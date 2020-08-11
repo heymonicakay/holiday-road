@@ -1,10 +1,11 @@
 import { useWeatherData } from "./WeatherProvider.js";
-import { ForecastHTML, DayOfTheWeek } from "./WeatherHTMLGenerator.js"
 
 const contentTarget = document.querySelector(".container--forecast")
 const eventHub = document.querySelector(".main")
 
 eventHub.addEventListener("forecastHasBeenCaptured", customEvent => {
+      contentTarget.innerHTML = "";
+
       FilterWeather()
 })
 
@@ -17,18 +18,44 @@ export const FilterWeather = () => {
       })
       showForecast(fiveDayForecast)
 }
-export const showForecast = (fiveDayForecast) => {
 
-      contentTarget.innerHTML = fiveDayForecast.map(
-           (thisDay) => {
-                  return `
-                        <section class="forecast">
-                              ${DayOfTheWeek(thisDay)}
-                              ${ForecastHTML(thisDay)}
-                        </section>
-                  `
-            }).join("")
-            eventHub.addEventListener("forecastHasBeenCaptured", customEvent => {
-            FilterWeather()
-            })
+export const getDayOfTheWeek = (weather) => {
+      const date = new Date(weather.dt * 1000);
+      const daysOfTheWeek = [
+            'SUN',
+            'MON',
+            'TUE',
+            'WED',
+            'THU',
+            'FRI',
+            'SAT'
+      ]
+      const day = date.getDay()
+
+      return daysOfTheWeek[day]
+}
+export const showForecast = (fiveDayForecast) => {
+      contentTarget.innerHTML = fiveDayForecast.map((thisDay) => {
+            return `
+                  <div class="forecast--card">
+                        <div class="heading heading--forecast-card">
+                              ${getDayOfTheWeek(thisDay)}
+                        </div>
+                        <div class="forecast-card--details">
+                              <span class="forecast-card--image">
+                                    <img class="image forecast-image" src="http://openweathermap.org/img/wn/${thisDay.weather[0].icon}@2x.png">
+                              </span>
+                              <span class="temp--high">
+                                    ${Math.round(thisDay.main.temp_max)}&deg; F
+                              </span>
+                              <span class="temp--low">
+                                    ${Math.round(thisDay.main.temp_min)}&deg; F
+                              </span>
+                        </div>
+                  </div>
+            `
+      }).join("")
+      eventHub.addEventListener("forecastHasBeenCaptured", customEvent => {
+      FilterWeather()
+      })
 }

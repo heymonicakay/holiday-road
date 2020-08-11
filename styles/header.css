@@ -1,9 +1,13 @@
 header {
     display: flex;
+    flex: 1;
+    width: 100%;
     justify-content: center;
     font-family: sans-serif;
     font-size: x-large;
     font-style: italic;
     font-weight: bolder;
     padding: 1rem;
+    height: 10%;
+    width: auto;
 }
