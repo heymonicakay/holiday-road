@@ -5,6 +5,12 @@
       "park": "Cuyahoga Valley National Park",
       "bizarrie": "Owney the Stuffed Dog Postal Mascot",
       "id": 1
+    },
+    {
+      "eatery": "Occidental Grill & Seafood",
+      "park": "Augusta Canal National Heritage Area",
+      "bizarrie": "Avery’s Beverages",
+      "id": 2
     }
   ]
 }

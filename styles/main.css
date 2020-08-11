@@ -2,6 +2,7 @@
 @import "./select.css";
 @import "./itinerary-preview.css";
 @import "./itinerary-saved.css";
+@import "./weather.css";
 
     /* 
     color: #1a4766;
@@ -11,11 +12,11 @@
     */
 
 body {
+    width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: white;
     color: #191919;
-    margin: 0;
-    padding: 2rem;
+    padding: 2em;
 }
 
 h2 {
@@ -29,16 +30,27 @@ h3 {
 }
 
 .container__main {
-    margin: 0;
-}
-
-.container--left {
     display: flex;
+    flex: 1;
+    height: auto;
     flex-direction: column;
-    background-color: lightgrey;
+    margin: 0;
 }
 
 .container--content {
     display: flex;
+    flex: 1;
     flex-direction: row;
+}
+
+.container--left {
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    background-color: lightgrey;
+}
+
+.container--right {
+    display: flex;
+    flex: 1;
 }

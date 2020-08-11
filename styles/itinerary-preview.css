@@ -1,36 +1,26 @@
-
 .container--preview-forecast {
     display: flex;
+    flex: 1;
     flex-direction: row;
 }
 
 .container--iten-prev {
     display: flex;
+    flex: 3;
     flex-direction: column;    
     background-color: dimgrey;
     color: white;
     font-size: small;
     padding: 1.5rem;
     margin: 1rem;
-    min-width: 35rem;
-}
-
-.container--forecast {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    background-color: dimgrey;
-    color: white;
-    font-size: small;
-    padding: 1.5rem;
-    margin: 1rem;
-    width: 10rem;
+    /* min-width: 3rem; */
 }
 
 .container--nat-park, 
 .container--biz, 
 .container--eatery {
     display: flex;
+    flex: 1;
     flex-direction: row;
 }
 
@@ -38,6 +28,7 @@
 .preview--biz, 
 .preview--eat {
     display: flex;
+    flex: 1;
     flex-direction: row;
     align-items: center;
 }
@@ -59,3 +50,11 @@
     border: 1px solid dimgrey;
     width: 50%;
 }
+
+.preview--biz-contain,
+.preview--eat-contain,
+.preview--park-contain {
+    display: flex;
+    flex: 1;
+}
+

@@ -1,0 +1,80 @@
+.container--five-day {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-content: center;
+      background-color: dimgrey;
+      color: white;
+      font-size: small;
+      margin: 1em;
+      padding: 1.5em;
+      overflow: hidden;
+}
+
+.heading--forecast {
+      display: flex;
+      font-weight: 250;
+}
+.container--forecast {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+}
+  
+.forecast--card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      justify-content: space-evenly;
+      align-content: center;
+}
+
+.heading--forecast-card {
+      display: flex;
+      justify-content: center;
+      background-color: #86a6b8;
+      margin-left: .25em;
+      margin-right: .25em;
+      padding: .25em;
+}
+
+.forecast-card--details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: .25em;
+      margin-right: .25em;
+      background-color: #bad5e4;
+}
+  
+.forecast-card--image {
+      display: flex;
+}
+
+.forecast-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+}
+  
+.temp--high{
+      display: flex;
+      align-self: flex-start;
+      font-weight: 325;
+      color:  rgb(59, 58, 58);
+      padding-left: .35em;
+}
+.temp--low {
+      display: flex;
+      align-self: flex-end;
+      font-size: smaller;
+      font-weight: 300;
+      color: rgb(59, 58, 58);
+      padding-bottom: .25em;
+      padding-right: .5em;
+}
+

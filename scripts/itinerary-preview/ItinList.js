@@ -71,7 +71,7 @@ eventHub.addEventListener("click", clickEvent => {
 const parkRender = foundPark => {
 
     parkTarget.innerHTML = `
-        <article>
+        <article class="preview--park-contain">
            ${ParkHTML(foundPark)}
         </article>
         ${parkDialog()}
@@ -93,7 +93,7 @@ const itinRender = savedItin => {
 const bizRender = foundBiz => {
 
     bizTarget.innerHTML = `
-        <article>
+        <article class="preview--biz-contain">
            ${BizHTML(foundBiz)}
         </article>
             ${bizDialog()}
@@ -102,7 +102,7 @@ const bizRender = foundBiz => {
 
 const eatRender = foundEatery => {
     eatTarget.innerHTML = `
-        <article>
+        <article class="preview--eat-contain">
            ${EateryHTML(foundEatery)}
         </article>
         ${eatDialog()}
