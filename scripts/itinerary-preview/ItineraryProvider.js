@@ -10,7 +10,7 @@ const dispatchStateChangeEvent = () => {
 export const saveItinerary = (itinerary) => {
     const jsonItinerary = JSON.stringify(itinerary)
 
-    return fetch('http://localhost:8087/itineraries', {
+    return fetch('https://my-json-server.typicode.com/heymonicakay/holiday-road', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -22,11 +22,11 @@ export const saveItinerary = (itinerary) => {
 }
 
 export const useItineraries = () => {
-    return itineraries.slice()    
+    return itineraries.slice()
 }
 
 export const getItineraries = () => {
-    return fetch('http://localhost:8087/itineraries')
+    return fetch('https://my-json-server.typicode.com/heymonicakay/holiday-road')
         .then(response => response.json())
         .then(parsedItineraries => {
             itineraries = parsedItineraries
@@ -34,5 +34,4 @@ export const getItineraries = () => {
 }
 
 
-  
-  
+
