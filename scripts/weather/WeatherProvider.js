@@ -15,11 +15,11 @@ eventHub.addEventListener("parkSelected", e => {
         const allPark = usePark()
         const foundPark = allPark.find(p => p.fullName === park)
         const [ zip, _] = foundPark.addresses[0].postalCode.split("-")
-        getWeatherData(zip)
+        getWeatherData()
     }
 })
 
-const getWeatherData = ( zip ) => {
+const getWeatherData = () => {
     return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=37206&units=imperial&appid=20a56fc71e8cb7dbfebfd4cd961766af`)
          .then(res => res.json())
          .then(data => dispatchForecastCaptured(data.list))
