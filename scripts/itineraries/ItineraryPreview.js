@@ -12,17 +12,17 @@ const saveButton = document.querySelector (".save-btn")
 
 eventHub.addEventListener("click", e => {
     if (e.target.id === "saveItinerary"){
-        const eat = document.querySelector("#eaterySelect")
-        const biz = document.querySelector("#bizSelect")
-        const park = document.querySelector("#parkSelect")
+        const eat = document.querySelector("#eaterySelect").value
+        const biz = document.querySelector("#bizSelect").value
+        const park = document.querySelector("#parkSelect").value
 
         const newItinerary = {
-            eatery: eat.value,
-            park: park.value,
-            bizarrie: biz.value,
+            eatery: eat,
+            park: park,
+            bizarrie: biz,
             timestamp: Date.now()
         }
-
+        
         saveItinerary(newItinerary)
     }
 })

@@ -13,3 +13,15 @@ export const zero = (qs) => {
 export const clear = (qs) => {
     document.querySelector(`.container--${qs}`).innerHTML = ''
 }
+
+export const shuffle = (arr) => {
+    let currentIndex = arr.length, holdThisForASec, numberOutOfAHat;
+    while (0 !== currentIndex) {
+        numberOutOfAHat = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        holdThisForASec = arr[currentIndex];
+        arr[currentIndex] = arr[numberOutOfAHat];
+        arr[numberOutOfAHat] = holdThisForASec;
+    }
+    return arr;
+}
