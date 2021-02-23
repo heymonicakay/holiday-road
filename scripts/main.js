@@ -1,7 +1,7 @@
 import { BizSelect } from "./bizarries/BizSelect.js";
 import { EaterySelect } from "./eateries/EaterySelect.js";
 import { ParkSelect } from "./parks/ParkSelect.js";
-import { getWeather } from "./weather/WeatherProvider.js"
+import { getWeatherData } from "./weather/WeatherProvider.js"
 import "./weather/WeatherProvider.js";
 import "./weather/WeatherList.js";
 import "./itinerary-preview/ItinList.js"
@@ -15,4 +15,4 @@ ParkSelect()
 
 ItinList()
 
-getWeather()
+getWeatherData()
