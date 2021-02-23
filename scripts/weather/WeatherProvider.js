@@ -1,4 +1,3 @@
-import { keys } from "../Settings.js"
 import { usePark } from "../parks/ParkProvider.js"
 
 const eventHub = document.querySelector(".main")
@@ -20,7 +19,8 @@ eventHub.addEventListener("parkSelected", e => {
 })
 
 const getWeatherData = () => {
-    return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=37206&units=imperial&appid=20a56fc71e8cb7dbfebfd4cd961766af`)
+    console.log("GET WEATHER")
+    return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=37221&units=imperial&appid=20a56fc71e8cb7dbfebfd4cd961766af`)
          .then(res => res.json())
          .then(data => dispatchForecastCaptured(data.list))
 }
