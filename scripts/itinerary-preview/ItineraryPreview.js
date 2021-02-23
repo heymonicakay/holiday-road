@@ -1,7 +1,7 @@
 import { BizHTML } from "../bizarries/BizHTMLGenerator.js";
 import { EateryHTML } from "../eateries/EateryHTMLGenerator.js";
 import { ParkHTML } from "../parks/ParkHTMLGenerator.js";
-import { bizDialog, eatDialog, parkDialog } from "../details/DetailDialog.js";
+import { dialog } from "../details/DetailDialog.js";
 import { getItineraries, useItineraries, saveItinerary } from "./ItineraryProvider.js";
 
 const eventHub = document.querySelector(".main")
@@ -12,66 +12,84 @@ const saveButton = document.querySelector (".save-btn")
 
 eventHub.addEventListener("click", clickEvent => {
       if (clickEvent.target.id === "saveItinerary"){
-            const selectedEatery = document.querySelector("#eaterySelect")
-            const selectedBiz = document.querySelector("#bizSelect")
-            const selectedPark = document.querySelector("#parkSelect") 
-
-            if (selectedEatery.value != "0" && selectedBiz.value != "0" && selectedPark.value != "0"){
+          console.log("SAVE ITINERARY CLICKED")
+            const eat = document.querySelector("#eaterySelect")
+            const biz = document.querySelector("#bizSelect")
+            const park = document.querySelector("#parkSelect")
+            console.log(eat.value, "EAT VALUE")
+            if (eat.value == "0") {
+                console.log("Please select an eatery")
+            }
+            if (biz.value == "0") {
+                console.log("Please select a biz")
+            }
+            if (park.value == "0") {
+                console.log("Please select a park")
+            }
+            else {
 
             const newItinerary = {
-                  eatery: selectedEatery.value,
-                  park: selectedPark.value,
-                  bizarrie: selectedBiz.value,
+                  eatery: eat.value,
+                  park: park.value,
+                  bizarrie: biz.value,
                   timestamp: Date.now()
             }
-        
+
             saveItinerary(newItinerary)
             }
       }
 })
 
-const saveCheckList = {
-      userPickedPark: false,
-      userPickedEatery: false,
-      userPickedBizarrie: false
+const save = {
+      park: false,
+      eat: false,
+      bizChosen: false
 }
 
 export const enableSaveButton = () => {
-      if (saveCheckList.userPickedPark && saveCheckList.userPickedEatery && saveCheckList.userPickedBizarrie) {
+      if (save.park && save.eat && save.biz) {
           saveButton.disabled = false;
       }
 }
-eventHub.addEventListener("parkSelected", event => {
-      const foundPark = event.detail.fullName
 
-      parkTarget.innerHTML = `
-            ${ParkHTML(foundPark)}
-            ${parkDialog()}
-      `
-      saveCheckList.userPickedPark = true;
-      enableSaveButton()
+eventHub.addEventListener("parkSelected", e => {
+    const foundPark = e.detail.fullName
+
+    if(foundPark === "0"){
+        parkTarget.innerHTML = ``
+        save.park = false;
+        enableSaveButton()
+    }
+    else {
+        parkTarget.innerHTML = `
+        ${ParkHTML(foundPark)}
+        ${dialog("park")}
+        `
+        save.park = true;
+        enableSaveButton()
+    }
 })
 
-eventHub.addEventListener("eaterySelected", event => {
-      const foundEatery = event.detail.eateryId
+eventHub.addEventListener("eaterySelected", e => {
+      const eatId = e.detail.eateryId
 
       eatTarget.innerHTML = `
-            ${EateryHTML(foundEatery)}
-            ${eatDialog()}
+            ${EateryHTML(eatId)}
+            ${dialog("eat")}
       `
-      saveCheckList.userPickedEatery = true;
+      save.eat = true;
       enableSaveButton()
 })
-  
-eventHub.addEventListener("bizSelected", event => {
-      const foundBiz = event.detail.bizId
+
+eventHub.addEventListener("bizSelected", e => {
+      const bizId = e.detail.bizId
 
       bizTarget.innerHTML = `
-           ${BizHTML(foundBiz)}
-            ${bizDialog()}
+        ${BizHTML(bizId)}
+        ${dialog("biz")}
       `
 
-      saveCheckList.userPickedBizarrie = true;
-          enableSaveButton()
-  
+      save.biz = true;
+    enableSaveButton()
+
 })

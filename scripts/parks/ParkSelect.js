@@ -3,15 +3,13 @@ import { usePark, getPark } from "./ParkProvider.js";
 const contentTarget = document.querySelector(".container--nat-park-select")
 const eventHub = document.querySelector(".main")
 
-contentTarget.addEventListener("change", changeEvent => {
-    if (changeEvent.target.value != "0") {
-    const customEvent = new CustomEvent("parkSelected", {
+contentTarget.addEventListener("change", e => {
+    const custom = new CustomEvent("parkSelected", {
         detail: {
-            fullName: changeEvent.target.value
+            fullName: e.target.value
         }
     })
-    eventHub.dispatchEvent(customEvent)
-}
+    eventHub.dispatchEvent(custom)
 })
 
 
@@ -27,7 +25,7 @@ const render = parkCollection => {
             ).join("")
         }
     </select>
-    `    
+    `
 }
 
 export const ParkSelect = () => {
