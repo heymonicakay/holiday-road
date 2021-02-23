@@ -20,7 +20,7 @@ eventHub.addEventListener("parkSelected", e => {
 })
 
 const getWeatherData = ( zip ) => {
-    return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=${zip}&units=imperial&appid=${keys.weatherKey}`)
+    return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=37206&units=imperial&appid=20a56fc71e8cb7dbfebfd4cd961766af`)
          .then(res => res.json())
          .then(data => dispatchForecastCaptured(data.list))
 }
