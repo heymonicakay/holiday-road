@@ -125,6 +125,104 @@
       "bizarrie": "Elvis Memorial Chapel",
       "timestamp": 1614061164402,
       "id": 20
+    },
+    {
+      "eatery": "Deer Park Tavern",
+      "park": "Augusta Canal National Heritage Area",
+      "bizarrie": "Avery’s Beverages",
+      "timestamp": 1614072477663,
+      "id": 21
+    },
+    {
+      "eatery": "Louis' Lunch",
+      "park": "Big Cypress National Preserve",
+      "bizarrie": "Largest Fork in the US",
+      "timestamp": 1614072566641,
+      "id": 22
+    },
+    {
+      "eatery": "Louis' Lunch",
+      "park": "Big Cypress National Preserve",
+      "bizarrie": "Largest Fork in the US",
+      "timestamp": 1614072568219,
+      "id": 23
+    },
+    {
+      "eatery": "El Charro Cafe",
+      "park": "Belmont-Paul Women's Equality National Monument",
+      "bizarrie": "Largest Fork in the US",
+      "timestamp": 1614073234459,
+      "id": 24
+    },
+    {
+      "eatery": "Deer Park Tavern",
+      "park": "Big Cypress National Preserve",
+      "bizarrie": "Snake World",
+      "timestamp": 1614073370467,
+      "id": 25
+    },
+    {
+      "eatery": "Louis' Lunch",
+      "park": "Belmont-Paul Women's Equality National Monument",
+      "bizarrie": "Owney the Stuffed Dog Postal Mascot",
+      "timestamp": 1614073437178,
+      "id": 26
+    },
+    {
+      "eatery": "H&H Soul Food",
+      "park": "Fort Davis National Historic Site",
+      "bizarrie": "Giant Tattoo Needle",
+      "timestamp": 1614073502486,
+      "id": 27
+    },
+    {
+      "eatery": "Louis' Lunch",
+      "park": "Fort Bowie National Historic Site",
+      "bizarrie": "Owney the Stuffed Dog Postal Mascot",
+      "timestamp": 1614073518199,
+      "id": 28
+    },
+    {
+      "eatery": "Northwestern Steakhouse",
+      "park": "Big Cypress National Preserve",
+      "bizarrie": "First Kiss Spot of the Obamas",
+      "timestamp": 1614073596011,
+      "id": 29
+    },
+    {
+      "eatery": "The Old Clam House",
+      "park": "Cape Cod National Seashore",
+      "bizarrie": "Owney the Stuffed Dog Postal Mascot",
+      "timestamp": 1614073769124,
+      "id": 30
+    },
+    {
+      "eatery": "Joe's Stone Crab",
+      "park": "Big Cypress National Preserve",
+      "bizarrie": "Cabazon Dinosaurs",
+      "timestamp": 1614073947274,
+      "id": 31
+    },
+    {
+      "eatery": "Hy's Steak House",
+      "park": "Belmont-Paul Women's Equality National Monument",
+      "bizarrie": "Snake World",
+      "timestamp": 1614074006629,
+      "id": 32
+    },
+    {
+      "eatery": "Deer Park Tavern",
+      "park": "Belmont-Paul Women's Equality National Monument",
+      "bizarrie": "Cabazon Dinosaurs",
+      "timestamp": 1614074260670,
+      "id": 33
+    },
+    {
+      "eatery": "Northwestern Steakhouse",
+      "park": "Bryce Canyon National Park",
+      "bizarrie": "World’s Largest ‘Gone With the Wind’ Collection",
+      "timestamp": 1614076026464,
+      "id": 34
     }
   ]
 }

@@ -5,3 +5,11 @@ export const getDayOfTheWeek = (w) => {
 
     return week[day]
 }
+
+export const zero = (qs) => {
+    document.querySelector(`#${qs}Select`).value = "0"
+}
+
+export const clear = (qs) => {
+    document.querySelector(`.container--${qs}`).innerHTML = ''
+}

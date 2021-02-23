@@ -2,7 +2,7 @@ import { BizHTML } from "../bizarries/BizHTMLGenerator.js";
 import { EateryHTML } from "../eateries/EateryHTMLGenerator.js";
 import { ParkHTML } from "../parks/ParkHTMLGenerator.js";
 import { dialog } from "../details/DetailDialog.js";
-import { getItineraries, useItineraries, saveItinerary } from "./ItineraryProvider.js";
+import { saveItinerary } from "./ItineraryProvider.js";
 
 const eventHub = document.querySelector(".main")
 const bizTarget = document.querySelector(".container--biz")
@@ -10,40 +10,27 @@ const eatTarget = document.querySelector(".container--eatery")
 const parkTarget = document.querySelector(".container--nat-park")
 const saveButton = document.querySelector (".save-btn")
 
-eventHub.addEventListener("click", clickEvent => {
-      if (clickEvent.target.id === "saveItinerary"){
-          console.log("SAVE ITINERARY CLICKED")
-            const eat = document.querySelector("#eaterySelect")
-            const biz = document.querySelector("#bizSelect")
-            const park = document.querySelector("#parkSelect")
-            console.log(eat.value, "EAT VALUE")
-            if (eat.value == "0") {
-                console.log("Please select an eatery")
-            }
-            if (biz.value == "0") {
-                console.log("Please select a biz")
-            }
-            if (park.value == "0") {
-                console.log("Please select a park")
-            }
-            else {
+eventHub.addEventListener("click", e => {
+    if (e.target.id === "saveItinerary"){
+        const eat = document.querySelector("#eaterySelect")
+        const biz = document.querySelector("#bizSelect")
+        const park = document.querySelector("#parkSelect")
 
-            const newItinerary = {
-                  eatery: eat.value,
-                  park: park.value,
-                  bizarrie: biz.value,
-                  timestamp: Date.now()
-            }
+        const newItinerary = {
+            eatery: eat.value,
+            park: park.value,
+            bizarrie: biz.value,
+            timestamp: Date.now()
+        }
 
-            saveItinerary(newItinerary)
-            }
-      }
+        saveItinerary(newItinerary)
+    }
 })
 
 const save = {
       park: false,
       eat: false,
-      bizChosen: false
+      biz: false
 }
 
 export const enableSaveButton = () => {
@@ -55,7 +42,7 @@ export const enableSaveButton = () => {
 eventHub.addEventListener("parkSelected", e => {
     const foundPark = e.detail.fullName
 
-    if(foundPark === "0"){
+    if( foundPark === "0" ){
         parkTarget.innerHTML = ``
         save.park = false;
         enableSaveButton()
@@ -92,4 +79,37 @@ eventHub.addEventListener("bizSelected", e => {
       save.biz = true;
     enableSaveButton()
 
+})
+
+const previewSection = document.querySelector(".container--iten-prev")
+
+previewSection.addEventListener("click", click => {
+    if(click.target.id.startsWith("details--")) {
+        const [_, type, detail] = click.target.id.split("--")
+        if(type === "eat"){
+            const e = new CustomEvent ("eatDetailsClicked", {
+                detail: {
+                    eatChosen: detail
+                }
+            })
+            eventHub.dispatchEvent(e)
+        }
+        if(type === "biz"){
+            const e = new CustomEvent ("bizDetailsClicked", {
+                detail: {
+                    bizChosen: detail
+                }
+            })
+            eventHub.dispatchEvent(e)
+        }
+        if(type === "park"){
+            const e = new CustomEvent ("parkDetailsClicked", {
+                detail: {
+                    parkChosen: detail
+                }
+            })
+            eventHub.dispatchEvent(e)
+        }
+
+    }
 })
