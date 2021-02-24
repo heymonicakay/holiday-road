@@ -6,10 +6,10 @@ const eventHub = document.querySelector(".main")
 eventHub.addEventListener("forecastHasBeenCaptured", e => {
     contentTarget.innerHTML = "";
     let data = e.detail.weather
-    filterWeather(data)
+    FilterWeather(data)
 })
 
-const filterWeather = (data) => {
+const FilterWeather = (data) => {
     if(data){
         const forecast = data.filter(w => w.dt_txt.split(" ")[1] === "12:00:00")
         showForecast(forecast)
