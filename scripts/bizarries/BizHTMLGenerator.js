@@ -1,6 +1,6 @@
-// exports BizHTML()
+// exports BizHTML() and BizOptionHTML()
 export const BizHTML = (bizObj) => {
-        return `
+    return `
         <section class="preview--biz">
             <div><b>Attraction: </b>
             ${bizObj}
@@ -13,5 +13,5 @@ export const BizHTML = (bizObj) => {
 }
 
 export const BizOption = (bizObject) => {
-        return `<option value="${bizObject.name}">${bizObject.name}</option>`
+    return `<option value="${bizObject.name}">${bizObject.name}</option>`
 }

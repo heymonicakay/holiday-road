@@ -1,8 +1,8 @@
 let bizarries = []
 
 export const useBiz = () => {
-    let filledArray = [...bizarries]
-    return filledArray
+    let bizData = [...bizarries]
+    return bizData;
 }
 export const getBiz = () => fetch("http://holidayroad.nss.team/bizarreries")
     .then(res => res.json())
