@@ -11,3 +11,7 @@ export const BizHTML = (bizObj) => {
         </section>
       `
 }
+
+export const BizOption = (bizObject) => {
+        return `<option value="${bizObject.name}">${bizObject.name}</option>`
+}

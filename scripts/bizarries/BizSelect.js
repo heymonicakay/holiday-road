@@ -1,45 +1,41 @@
 import { useBiz, getBiz } from "./BizProvider.js";
+import { BizOption } from "./BizHTMLGenerator.js"
 
-const contentTarget = document.querySelector(".container--biz-select")
+const contentTarget = document.querySelector("#bizSelect");
 const eventHub = document.querySelector(".main")
 
-contentTarget.addEventListener("change", changeEvent => {
-if (changeEvent.target.value != "0") {
-    const customEvent = new CustomEvent("bizSelected", {
-        detail: {
-            bizId: changeEvent.target.value
-        }
-    })
-    eventHub.dispatchEvent(customEvent)
+contentTarget.addEventListener("change", e => {
+    if (e.target.value != "0") {
+        const customEvent = new CustomEvent("bizSelected", {
+            detail: {
+                bizId: e.target.value
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
 
-    // console.log checkpoint, start...
-    console.log("what is returned when user selects a bizarre destination--", changeEvent.target.value)
-    ///console.log checkpoint, end...
+        // console.log checkpoint, start...
+        console.log("what is returned when user selects a bizarre destination--", e.target.value)
+        ///console.log checkpoint, end...
 
-}
+    }
 })
 
-const render = bizCollection => {
-
-    contentTarget.innerHTML = `
-    <select class="dropdown" id="bizSelect">
+const renderBizDropdown = bizCollection => {
+    let dropdownHTML = `
         <option value="0">Please select a bizarre destination...</option>
-        ${
-            bizCollection.map(bizObject => {
-                    return `<option value="${bizObject.name}">${bizObject.name}</option>`
-                }
-            ).join("")
-        }
-    </select>
     `
+    bizCollection.forEach(bizObject => {
+        dropdownHTML += BizOption(bizObject)
+    })
+    contentTarget.innerHTML = dropdownHTML
+
 }
 
 export const BizSelect = () => {
     getBiz()
     .then(() => {
         const biz = useBiz()
-        render(biz)
+        renderBizDropdown(biz);
     })
 }
 
-// testing
