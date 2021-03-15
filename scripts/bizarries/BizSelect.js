@@ -11,7 +11,7 @@ if (changeEvent.target.value != "0") {
         }
     })
     eventHub.dispatchEvent(customEvent)
-    
+
     // console.log checkpoint, start...
     console.log("what is returned when user selects a bizarre destination--", changeEvent.target.value)
     ///console.log checkpoint, end...
@@ -34,8 +34,6 @@ const render = bizCollection => {
     `
 }
 
-
-
 export const BizSelect = () => {
     getBiz()
     .then(() => {
@@ -44,4 +42,4 @@ export const BizSelect = () => {
     })
 }
 
-// testing 
+// testing
