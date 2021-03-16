@@ -19,7 +19,6 @@ const renderBizDropdown = bizCollection => {
     })
     // replace content on DOM with dropdown HTML
     contentTarget.innerHTML = dropdownHTML
-
 }
 
 export const BizSelect = () => {
