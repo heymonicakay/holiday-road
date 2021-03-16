@@ -33,10 +33,15 @@ const save = {
       biz: false
 }
 
-export const enableSaveButton = () => {
-      if (save.park && save.eat && save.biz) {
-          saveButton.disabled = false;
-      }
+export const enableSaveButton = (prevObj) => {
+    if (prevObj.park && prevObj.eat && prevObj.biz) {
+        saveButton.disabled = false;
+    }
+    else {
+        saveButton.disabled = true;
+    }
+    console.log(saveButton.disabled);
+
 }
 
 eventHub.addEventListener("parkSelected", e => {

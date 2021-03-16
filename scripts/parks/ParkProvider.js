@@ -1,7 +1,11 @@
+import { keys } from "../Settings.js"
+
 let parks = []
 
-export const usePark = () => parks.slice()
+export const usePark = () => {
+    return [...parks]
+}
 
-export const getPark = () => fetch("http://localhost:8088/data")
+export const getPark = () => fetch(`https://developer.nps.gov/api/v1/parks?api_key=${keys.npsKey}`)
     .then(res => res.json())
-    .then(data => parks = data)
+    .then(data => parks = data.data);
