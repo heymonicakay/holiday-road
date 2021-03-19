@@ -1,15 +1,15 @@
-let bizarries = []
+let bizarreAttractions = []
 
-export const useBiz = () => {
+export const useBizAttractions = () => {
     // returns copy of the data (array)
-    return [...bizarries]
+    return [...bizarreAttractions];
 }
-export const getBiz = () => fetch("http://holidayroad.nss.team/bizarreries")
+export const getBizAttractions = () => fetch("http://holidayroad.nss.team/bizarreries")
 // makes GET request to biz api
 // ... wait for requested data to be returned
 // then parse it into JSON
     .then(res => res.json())
     // wait for parsed JSON to be returned
     // then store data in bizarries array
-    .then(data => bizarries = data)
+    .then(data => bizarreAttractions = data)
 

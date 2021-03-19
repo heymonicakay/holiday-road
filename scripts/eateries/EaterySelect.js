@@ -1,43 +1,26 @@
-import { useEatery, getEatery } from "./EateryProvider.js";
-
-const contentTarget = document.querySelector(".container--eat-select")
-const eventHub = document.querySelector(".main")
-
-contentTarget.addEventListener("change", changeEvent => {
-    if (changeEvent.target.value != "0") {
-    const customEvent = new CustomEvent("eaterySelected", {
-        
-        detail: {
-            eateryId: changeEvent.target.value
-        }
-    })
-
-    eventHub.dispatchEvent(customEvent)
-}
-})
+import { useEateries, getEateries } from "./EateryProvider.js";
+import { EatOption } from "./EateryHTMLGenerator.js";
 
 
-const render = eateryCollection => {
+//get a reference to the DOM element
+const contentTarget = document.querySelector("#eatSelect");
 
-    contentTarget.innerHTML = `
-    <select class="dropdown" id="eaterySelect">
-        <option value="0">Please select a restaurant...</option>
-        ${
-            eateryCollection.map(eateryObject => {
-                    return `<option value="${eateryObject.businessName}">${eateryObject.businessName}</option>`
-                }
-            ).join("")
-        }
-    </select>
-    `
+const renderEatDropdown = eateryCollection => {
+    let dropdownHTML = `
+            <option value="0">Please select a bizarre destination...</option>
+        `;
+
+        eateryCollection.forEach(eatObject => {
+            dropdownHTML += EatOption(eatObject)
+        })
+        contentTarget.innerHTML = dropdownHTML
 }
 
 
 
 export const EaterySelect = () => {
-    getEatery()
-    .then(() => {
-        const eatery = useEatery()
-        render(eatery)
-    })
+    getEateries().then(() => {
+      const eateriesArray = useEateries();
+      renderEatDropdown(eateriesArray);
+    });
 }

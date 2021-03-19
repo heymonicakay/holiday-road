@@ -1,20 +1,24 @@
 // exports BizHTML() and BizOptionHTML()
+import { detailsButton } from "../details/DetailDialog.js";
 
-
-export const BizHTML = (bizObj) => {
-    // returns HTML block for single biz object
-    // displayed in itin preview section after selection
-    return `
-        <section class="preview--biz">
-            <div><b>Attraction: </b>
-            ${bizObj}
+export const BizHTML = (itinPreviewObj) => {
+    let bizHTML = `
+      <section class="preview--biz">
+            <div>
+                ${
+                  itinPreviewObj.biz.name
+                    ? itinPreviewObj.biz.name
+                    : "No bizarre attraction selected."
+                }
             </div>
-            <button class="button--details-biz" id="details--biz--${bizObj}">
-                Details
-            </button>
-        </section>
-      `
-}
+      `;
+    if (itinPreviewObj.biz.name) {
+        bizHTML += detailsButton("biz", itinPreviewObj);
+    }
+    bizHTML += `</section>`;
+
+    return bizHTML;
+};
 
 export const BizOption = (bizObject) => {
   // returns HTML string for single biz object

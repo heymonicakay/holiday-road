@@ -12,8 +12,8 @@
     flex-direction: row;
 }
 
-#parkSelect, 
-#eaterySelect, 
+#parkSelect,
+#eatSelect,
 #bizSelect {
     display: flex;
     justify-content: space-between;

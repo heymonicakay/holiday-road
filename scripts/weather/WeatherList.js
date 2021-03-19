@@ -1,24 +1,31 @@
 import { WeatherCard } from "./WeatherCard.js"
+import { getWeatherData, getZip } from "./WeatherProvider.js";
+import { qs } from "../utils.js"
 
-const contentTarget = document.querySelector(".container--forecast")
-const eventHub = document.querySelector(".main")
+const weatherTarget = qs(".container--five-day");
 
-eventHub.addEventListener("forecastHasBeenCaptured", e => {
-    contentTarget.innerHTML = "";
-    let data = e.detail.weather
-    FilterWeather(data)
-})
+const WeatherList = (data) => {
+    let weatherHTML = `
+        <h3 class="heading--forecast">5-Day Forecast</h3>
+        <h3>${data.city}</h4>
+        <article class="container--forecast">
+    `;
 
-const FilterWeather = (data) => {
-    if(data){
-        const forecast = data.filter(w => w.dt_txt.split(" ")[1] === "12:00:00")
-        showForecast(forecast)
-    }
+    data.fiveDay.forEach((day) => {
+        weatherHTML += WeatherCard(day);
+    });
+
+    weatherHTML += `</article>`
+    return weatherHTML
 }
-
-const showForecast = (data) => {
-    contentTarget.innerHTML = data.map(d => {
-        let card = WeatherCard(d)
-        return card
-    }).join("")
+export const showForecast = (park) => {
+    let zip = ''
+    if(typeof park === "string"){
+        zip = park
+    } else {
+        zip = getZip(park)
+    }
+    getWeatherData(zip).then(data =>{
+        weatherTarget.innerHTML = WeatherList(data);
+    })
 }

@@ -1,4 +1,4 @@
-import { useBiz, getBiz } from "./BizProvider.js";
+import { useBizAttractions, getBizAttractions } from "./BizProvider.js";
 import { BizOption } from "./BizHTMLGenerator.js"
 
 //get a reference to the DOM element
@@ -23,13 +23,11 @@ const renderBizDropdown = bizCollection => {
 
 export const BizSelect = () => {
     // get the bizarre attractions
-    getBiz()
-    // wait for it...
-    .then(() => {
+    getBizAttractions().then(() => {
         // store a copy of the data (array) in biz
-        const biz = useBiz()
+        const bizArray = useBizAttractions()
         // invoke render function with arg: biz (data array)
-        renderBizDropdown(biz);
+        renderBizDropdown(bizArray);
     })
 }
 

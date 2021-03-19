@@ -9,10 +9,10 @@ export const renderItin = () => {
     itinerarySection.innerHTML = itineraries.map(i => itineraryHTML(i)).reverse().join("")
 }
 
-export const ItinList = () => {
+export const renderItinList = () => {
     getItineraries()
-        .then(useItineraries)
-        .then(renderItin)
+        .then(useItineraries())
+        .then(renderItin())
 }
 
 eventHub.addEventListener("itinerariesStateChanged", () => {

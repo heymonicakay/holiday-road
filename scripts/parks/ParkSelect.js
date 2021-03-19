@@ -1,37 +1,22 @@
-import { usePark, getPark } from "./ParkProvider.js";
+import { useParks, getParks } from "./ParkProvider.js";
+import { ParkOption } from "./ParkHTMLGenerator.js"
 
-const contentTarget = document.querySelector(".container--nat-park-select")
-const eventHub = document.querySelector(".main")
+const contentTarget = document.querySelector("#parkSelect");
 
-contentTarget.addEventListener("change", e => {
-    const custom = new CustomEvent("parkSelected", {
-        detail: {
-            fullName: e.target.value
-        }
-    })
-    eventHub.dispatchEvent(custom)
-})
+const renderParkDropdown = parkCollection => {
+    let dropdownHTML = `
+                <option value="0">Please select a park...</option>
+            `;
+    parkCollection.forEach((parkObject) => {
+      dropdownHTML += ParkOption(parkObject);
+    });
+    contentTarget.innerHTML = dropdownHTML;
 
-
-const render = parkCollection => {
-
-    contentTarget.innerHTML = `
-    <select class="dropdown" id="parkSelect">
-        <option value="0">Please select a national park...</option>
-        ${
-            parkCollection.map(parkObject => {
-                    return `<option value="${parkObject.fullName}">${parkObject.fullName}</option>`
-                }
-            ).join("")
-        }
-    </select>
-    `
 }
 
 export const ParkSelect = () => {
-    getPark()
-    .then(() => {
-        const park = usePark()
-        render(park)
+    getParks().then(() => {
+        const parksArray = useParks()
+        renderParkDropdown(parksArray);
     })
 }

@@ -1,57 +1,91 @@
 import { BizSelect } from "./bizarries/BizSelect.js";
-import { BizHTML } from "./bizarries/BizHTMLGenerator.js"
 import { EaterySelect } from "./eateries/EaterySelect.js";
 import { ParkSelect } from "./parks/ParkSelect.js";
+import { renderItinList } from "./itineraries/ItinList.js";
+import { enableSave, findObj, qs } from "./utils.js";
+import { useParks } from "./parks/ParkProvider.js";
+import { useEateries } from "./eateries/EateryProvider.js";
+import { useBizAttractions } from "./bizarries/BizProvider.js";
+import { itineraryPreviewHTML } from "./itineraries/itineraryHTML.js"
+import { itinPreview } from "./itineraries/itineraryPreview.js";
+import { showForecast } from "./weather/WeatherList.js"
+
 import "./weather/WeatherProvider.js";
 import "./weather/WeatherList.js";
 import "./itineraries/ItinList.js"
 import "./itineraries/ItineraryPreview.js"
 import "./itineraries/ItineraryProvider.js"
-import { ItinList } from "./itineraries/ItinList.js"
-import { enableSaveButton } from "./itineraries/ItineraryPreview.js"
 
-const eventTarget = document.querySelector(".main")
-const bizDropdown = document.querySelector("#bizSelect")
-const bizTarget = document.querySelector(".container--biz");
+const app = qs(".main")
+const dropdown = qs(".container--all-selectors")
+let zip = "37221"
 
-BizSelect()
-
-const itinPreview = {
-  park: "",
-  eat: "",
-  biz: "",
+const renderSelectElements = () => {
+    BizSelect();
+    EaterySelect();
+    ParkSelect();
 }
-eventTarget.addEventListener("click", (e) => {
-  if (e.target.id === "saveItinerary") {
-    const eat = document.querySelector("#eaterySelect");
-    const park = document.querySelector("#parkSelect");
 
-    const newItinerary = {
-      eatery: eat.value,
-      park: park.value,
-      bizarrie: itinPreview.biz,
-      timestamp: Date.now(),
-    };
+const startApp = () => {
+    renderSelectElements();
+    renderItinList();
+    itineraryPreviewHTML(itinPreview);
+    showForecast(zip);
+}
 
-    saveItinerary(newItinerary);
-  }
+startApp()
+app.addEventListener("click", (e) => {
+    const id = e.target.id
+    switch (id) {
+        case "saveItinerary":
+            const newItinerary = {
+                eatery: itinPreview.eat,
+                park: itinPreview.park,
+                bizarrie: itinPreview.biz,
+                timestamp: Date.now(),
+            };
+            saveItinerary(newItinerary);
+        break;
+
+        case "dialog-box--":
+            console.log("dialog box clicked")
+        break;
+    }
 });
 
-bizDropdown.addEventListener("change", (e) => {
-  if (e.target.value !== "0") {
-        const bizName = e.target.value
-        itinPreview.biz = bizName
-        
-        enableSaveButton(itinPreview);
-    }
-    else{
-        itinPreview.biz = ''
-        console.log("itinPreview", itinPreview);
-        enableSaveButton(itinPreview);
-    }
-  })
+dropdown.addEventListener("change", (e) => {
+    const parkSelectValue = qs(`#parkSelect`).value;
+    const eatSelectValue = qs(`#eatSelect`).value;
+    const bizSelectValue = qs(`#bizSelect`).value;
 
-EaterySelect()
-ParkSelect()
+    const id = e.target.id;
+    const targetValue = e.target.value
+    let found = {};
+  switch (id) {
+    case "bizSelect":
+        found = findObj(useBizAttractions(), targetValue)
+        {found ? itinPreview.biz = found : itinPreview.biz = {}}
 
-ItinList()
+    break;
+
+    case "parkSelect":
+        found = findObj(useParks(), targetValue);
+        if(found){
+            itinPreview.park = found
+            showForecast(found)
+        }else{
+            itinPreview.park = {};
+            showForecast(zip)
+        }
+    break;
+
+    case "eatSelect":
+        found = findObj(useEateries(), targetValue);
+        {found ? itinPreview.eat = found : itinPreview.eat = {}}
+    break;
+  }
+    enableSave(itinPreview, parkSelectValue, eatSelectValue, bizSelectValue);
+    itineraryPreviewHTML(itinPreview)
+
+});
+

@@ -1,11 +1,10 @@
 import { keys } from "../Settings.js"
 
-let parks = []
+let parksArray = []
 
-export const usePark = () => {
-    return [...parks]
-}
+export const useParks = () => [...parksArray]
 
-export const getPark = () => fetch(`https://developer.nps.gov/api/v1/parks?api_key=${keys.npsKey}`)
+
+export const getParks = () => fetch(`https://developer.nps.gov/api/v1/parks?api_key=${keys.npsKey}`)
     .then(res => res.json())
-    .then(data => parks = data.data);
+    .then(data => parksArray = data.data);

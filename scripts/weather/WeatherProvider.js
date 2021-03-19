@@ -1,33 +1,29 @@
 import { keys } from "../Settings.js"
-import { usePark } from "../parks/ParkProvider.js"
+import { useParks } from "../parks/ParkProvider.js"
 
-const eventHub = document.querySelector(".main")
-const forecastSection = document.querySelector(".container--forecast")
+let forecast = {}
 
-eventHub.addEventListener("parkSelected", e => {
-    const park = e.detail.fullName
-    if(park === "0"){
-        forecastSection.innerHTML = `No park selected.`
-    }
-    else {
-        forecastSection.innerHTML = `Fetching forecast...`
-        const allPark = usePark()
-        const foundPark = allPark.find(p => p.fullName === park)
-        const [ zip, _] = foundPark.addresses[0].postalCode.split("-")
-        getWeatherData(zip)
-    }
-})
+export const getZip = (parkObj) => {
+    const postalCode = parkObj.addresses[0].postalCode.split("-")[0];
+    return postalCode
+}
 
-const getWeatherData = ( zip ) => fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=${zip}&units=imperial&appid=${keys.weatherKey}`)
+export const getWeatherData = ( zip ) => {
+    return fetch(`http://api.openweathermap.org/data/2.5/forecast/?zip=${zip}&units=imperial&appid=${keys.weatherKey}`)
     .then(res => res.json())
-    .then(data => dispatchForecastCaptured(data.list))
+    .then(data => {
+        const fiveDay = []
+        const arr = data.list;
 
-
-const dispatchForecastCaptured = (data) => {
-    const forecast = new CustomEvent("forecastHasBeenCaptured", {
-        detail: {
-            weather: data
+        for(let i = 0; i < arr.length; i++){
+            if(i === 0 || i === 7 || i === 15 || i === 23 || i === 31 ){
+                fiveDay.push(arr[i]);
+            }
         }
+
+        forecast.city = data.city.name;
+        forecast.fiveDay = fiveDay
+
+        return forecast;
     })
-    eventHub.dispatchEvent(forecast)
 }

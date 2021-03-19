@@ -1,66 +1,100 @@
-import { useBiz } from "../bizarries/BizProvider.js";
-import { useEatery } from "../eateries/EateryProvider.js";
-import { usePark } from "../parks/ParkProvider.js";
+import { useBizAttractions } from "../bizarries/BizProvider.js";
+import { useEateries } from "../eateries/EateryProvider.js";
+import { useParks } from "../parks/ParkProvider.js";
 import { ParkDetails } from "./ParkDetails.js"
 import { BizDetails } from "./BizDetails.js"
 import { EatDetails } from "./EatDetails.js"
 
 const eventHub = document.querySelector(".main")
 
-eventHub.addEventListener("parkDetailsClicked", clickEvent => {
-
-    const contentTarget = document.querySelector (".dialog-box--park")
-    const nameOfPark = clickEvent.detail.parkChosen
-    const allPark = usePark()
-
-    const park = allPark.find(p => p.fullName === nameOfPark)
-
-    contentTarget.innerHTML = ParkDetails(park)
-
-    contentTarget.showModal()
-
-    contentTarget.addEventListener("click", clickEvent => {
-        if(clickEvent.target.id.startsWith("close--")) {
-            contentTarget.close()
-        }
-    })
-})
-
-eventHub.addEventListener("bizDetailsClicked", clickEvent => {
-
-    const contentTarget = document.querySelector (".dialog-box--biz")
-    const nameOfBiz = clickEvent.detail.bizChosen
-    const allBiz = useBiz()
-    const biz = allBiz.find(b => b.name === nameOfBiz)
-
-    contentTarget.innerHTML = BizDetails(biz)
-    contentTarget.showModal()
-    contentTarget.addEventListener("click", clickEvent => {
-        if(clickEvent.target.id.startsWith("close--")) {
-            contentTarget.close()
-        }
-    })
-  })
+const contentTarget = document.querySelector (".dialog-box--park")
 
 
-eventHub.addEventListener("eatDetailsClicked", clickEvent => {
+export const detailsButton = (type, itinPreviewObj) => {
+  let button = ``;
+  switch (type) {
+    case "park":
+      button = `<button
+                class="button--details-park"
+                 id="details--park--${itinPreviewObj.park.fullName}">
+                    Details
+                </button>`;
+      break;
 
-    const contentTarget = document.querySelector (".dialog-box--eat")
-    const nameOfEat = clickEvent.detail.eatChosen
-    const allEat = useEatery()
+    case "eat":
+      button = `<button
+                class="button--details-eat"
+                id="details--eat--${itinPreviewObj.eat.businessName}">
+                    Details
+                </button>`;
+      break;
 
-    const eat = allEat.find(e => e.businessName === nameOfEat)
+    case "biz":
+      button = `<button
+                class="button--details-biz"
+                id="details--biz--${itinPreviewObj.park.name}">
+                    Details
+                </button>`;
+      break;
+  }
+  return button;
+};
 
-    contentTarget.innerHTML = EatDetails(eat)
+// const toggleDetails = () => {
 
-    contentTarget.showModal()
+//     contentTarget.showModal()
+// }
+// const allPark = useParks()
 
-    contentTarget.addEventListener("click", clickEvent => {
-        if(clickEvent.target.id.startsWith("close--")) {
-            contentTarget.close()
-        }
-    })
-})
+// const park = allPark.find(p => p.fullName === nameOfPark)
+
+// contentTarget.innerHTML = ParkDetails(park)
+
+
+// contentTarget.addEventListener("click", e => {
+//     if(e.target.id.startsWith("close--")) {
+//         contentTarget.close()
+//     }
+// })
+
+
+
+
+// eventHub.addEventListener("bizDetailsClicked", clickEvent => {
+
+    // const contentTarget = document.querySelector (".dialog-box--biz")
+    // const nameOfBiz = clickEvent.detail.bizChosen
+    // const allBiz = useBizAttractions();
+    // const biz = allBiz.find(b => b.name === nameOfBiz)
+
+    // contentTarget.innerHTML = BizDetails(biz)
+    // contentTarget.showModal()
+    // contentTarget.addEventListener("click", clickEvent => {
+    //     if(clickEvent.target.id.startsWith("close--")) {
+    //         contentTarget.close()
+    //     }
+    // })
+//   })
+
+
+// eventHub.addEventListener("click", e => {
+//     // const element = e.target
+
+//     // const contentTarget = document.querySelector (".dialog-box--eat")
+//     // const allEat = useEateries()
+
+//     // const eat = allEat.find(e => e.businessName === nameOfEat)
+
+//     // contentTarget.innerHTML = EatDetails(eat)
+
+//     // contentTarget.showModal()
+
+//     // contentTarget.addEventListener("click", e => {
+//     //     if(element.id.startsWith("close--")) {
+//     //         contentTarget.close()
+//     //     }
+//     // })
+// })
 
 export const dialog = (type) => {
     return `
