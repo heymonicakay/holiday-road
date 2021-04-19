@@ -23,8 +23,10 @@ export const enableSave = (previewObj, park, eat, biz) => {
     const saveButton = qs("#saveItinerary");
     if (park === "0" || eat === "0" || biz === "0") {
         previewObj.save.disabled = true;
+        saveButton.disabled = true;
     } else {
         previewObj.save.disabled = false;
+        saveButton.disabled = false
     }
 
 };

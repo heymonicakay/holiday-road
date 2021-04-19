@@ -7,7 +7,7 @@ const contentTarget = document.querySelector("#eatSelect");
 
 const renderEatDropdown = eateryCollection => {
     let dropdownHTML = `
-            <option value="0">Please select a bizarre destination...</option>
+            <option value="0">Please select an eatery...</option>
         `;
 
         eateryCollection.forEach(eatObject => {

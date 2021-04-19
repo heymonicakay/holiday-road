@@ -9,12 +9,12 @@ import { useBizAttractions } from "./bizarries/BizProvider.js";
 import { itineraryPreviewHTML } from "./itineraries/itineraryHTML.js"
 import { itinPreview } from "./itineraries/ItineraryPreview.js";
 import { showForecast } from "./weather/WeatherList.js"
+import { saveItinerary } from "./itineraries/ItineraryProvider.js"
 
 // import "./weather/WeatherProvider.js";
 // import "./weather/WeatherList.js";
 // import "./itineraries/ItinList.js"
 // import "./itineraries/ItineraryPreview.js"
-// import "./itineraries/ItineraryProvider.js"
 
 const app = qs(".main")
 const dropdown = qs(".container--all-selectors")
@@ -36,20 +36,16 @@ const startApp = () => {
 startApp()
 app.addEventListener("click", (e) => {
     const id = e.target.id
-    switch (id) {
-        case "saveItinerary":
-            const newItinerary = {
-                eatery: itinPreview.eat,
-                park: itinPreview.park,
-                bizarrie: itinPreview.biz,
-                timestamp: Date.now(),
-            };
-            saveItinerary(newItinerary);
-        break;
-
-        case "dialog-box--":
-            console.log("dialog box clicked")
-        break;
+    if (id === "saveItinerary"){
+        const newItinerary = {
+            eatery: itinPreview.eat,
+            park: itinPreview.park,
+            bizarrie: itinPreview.biz,
+            timestamp: Date.now(),
+        };
+        saveItinerary(newItinerary);
+    } else if (id.startsWith("dialog-box--")){
+        console.log("dialog box clicked")
     }
 });
 

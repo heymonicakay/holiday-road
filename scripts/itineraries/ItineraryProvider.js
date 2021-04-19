@@ -1,4 +1,5 @@
 import { zero, clear } from  "../utils.js"
+import { showForecast } from "../weather/WeatherList.js"
 
 const eventHub = document.querySelector(".main")
 let itineraries = []
@@ -20,9 +21,9 @@ export const saveItinerary = (i) => {
         },
         body: json
     })
-    .then(getItineraries)
-    .then(resetItineraryPreview)
-    .then(dispatchStateChangeEvent)
+    .then(getItineraries())
+    .then(resetItineraryPreview())
+    // .then(dispatchStateChangeEvent())
 }
 
 export const useItineraries = () => itineraries.slice()
@@ -33,11 +34,11 @@ export const getItineraries = () => fetch(`${url}`)
 
 
 const resetItineraryPreview = () => {
-    zero("eatery")
+    zero("eat")
     zero("biz")
     zero("park")
     clear("eatery")
     clear("biz")
     clear("nat-park")
-    clear("forecast")
+    showForecast("37221")
 }
