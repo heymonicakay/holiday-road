@@ -30,8 +30,6 @@ previewSection.addEventListener("click", e => {
         break;
             case "park":
                 const parkValue = qs("#parkSelect").value;
-                console.log(parkValue, "PARKVALUE")
-
         break;
         }
     }

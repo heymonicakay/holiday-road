@@ -10,11 +10,11 @@ import { itineraryPreviewHTML } from "./itineraries/itineraryHTML.js"
 import { itinPreview } from "./itineraries/itineraryPreview.js";
 import { showForecast } from "./weather/WeatherList.js"
 
-import "./weather/WeatherProvider.js";
-import "./weather/WeatherList.js";
-import "./itineraries/ItinList.js"
-import "./itineraries/ItineraryPreview.js"
-import "./itineraries/ItineraryProvider.js"
+// import "./weather/WeatherProvider.js";
+// import "./weather/WeatherList.js";
+// import "./itineraries/ItinList.js"
+// import "./itineraries/ItineraryPreview.js"
+// import "./itineraries/ItineraryProvider.js"
 
 const app = qs(".main")
 const dropdown = qs(".container--all-selectors")

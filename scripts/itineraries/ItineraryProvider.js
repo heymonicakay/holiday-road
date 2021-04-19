@@ -2,6 +2,7 @@ import { zero, clear } from  "../utils.js"
 
 const eventHub = document.querySelector(".main")
 let itineraries = []
+// const url = "http://localhost:8088/itineraries"
 const url = "https://holiday-road-api.herokuapp.com/itineraries"
 
 const dispatchStateChangeEvent = () => {

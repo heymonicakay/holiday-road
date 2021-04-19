@@ -11,8 +11,7 @@ export const renderItin = () => {
 
 export const renderItinList = () => {
     getItineraries()
-        .then(useItineraries())
-        .then(renderItin())
+        .then(useItineraries()).then((data) => renderItin(data))
 }
 
 eventHub.addEventListener("itinerariesStateChanged", () => {
