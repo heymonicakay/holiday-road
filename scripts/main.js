@@ -7,7 +7,7 @@ import { useParks } from "./parks/ParkProvider.js";
 import { useEateries } from "./eateries/EateryProvider.js";
 import { useBizAttractions } from "./bizarries/BizProvider.js";
 import { itineraryPreviewHTML } from "./itineraries/itineraryHTML.js"
-import { itinPreview } from "./itineraries/itineraryPreview.js";
+import { itinPreview } from "./itineraries/ItineraryPreview.js";
 import { showForecast } from "./weather/WeatherList.js"
 
 // import "./weather/WeatherProvider.js";
