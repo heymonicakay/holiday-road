@@ -2,7 +2,7 @@ import { zero, clear } from  "../utils.js"
 
 const eventHub = document.querySelector(".main")
 let itineraries = []
-const url = "http://localhost:8087/itineraries"
+const url = "https://git.heroku.com/holiday-road-api.git"
 
 const dispatchStateChangeEvent = () => {
     const e = new CustomEvent("itinerariesStateChanged")

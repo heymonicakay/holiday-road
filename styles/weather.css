@@ -15,7 +15,6 @@
 
 .heading--forecast {
       display: flex;
-      justify-self: flex-start;
       font-weight: 250;
       height: 20%;
 }
