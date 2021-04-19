@@ -27,10 +27,10 @@ const renderSelectElements = () => {
 }
 
 const startApp = () => {
-    renderSelectElements();
-    renderItinList();
-    itineraryPreviewHTML(itinPreview);
-    showForecast(zip);
+    renderItinList()
+        renderSelectElements();
+        itineraryPreviewHTML(itinPreview);
+        showForecast(zip);
 }
 
 startApp()
